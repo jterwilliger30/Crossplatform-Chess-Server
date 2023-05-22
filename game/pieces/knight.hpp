@@ -2,9 +2,9 @@
 
 #include "../piece.hpp"
 
-class Pawnboard : public Piece {
+class Knightboard : public Piece {
 public:
-    Pawnboard(Player s, Bitboard *gamestate);
+    Knightboard(Player s, Bitboard *gamestate);
 
     Bitboard compute_attack() override;
     Bitboard compute_movement() override;

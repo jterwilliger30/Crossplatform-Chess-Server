@@ -1,6 +1,8 @@
+#pragma once
+
 #include <cstdint>
 
-#include "./spots_enum.h"
+#include "./spots_enum.hpp"
 
 class Bitboard {
 

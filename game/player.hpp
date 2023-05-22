@@ -1,3 +1,5 @@
+#pragma once
+
 enum class Color : bool {
     black = 0, 
     white = 1

@@ -1,8 +1,9 @@
 #include "./pawn.hpp"
 
-Pawnboard::Pawnboard(Player s)
+Pawnboard::Pawnboard(Player s, Bitboard* gamestate)
 {
     this->side = s;
+    this->gamestate = gamestate;
 }
 
 Bitboard Pawnboard::compute_attack()
