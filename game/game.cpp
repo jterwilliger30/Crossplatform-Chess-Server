@@ -15,7 +15,16 @@ int main()
     white_player.isHuman = player_type::human;
     black_player.isHuman = player_type::human;
 
-    Board GAMEBOARD(white_player, black_player);
+    Board GAMEBOARD(&white_player, &black_player);
 
-    //GAMEBOARD.gamestate->print_board();
+    // White Turn
+
+    // Victory, Stalemate, Check??
+
+    // Black Turn
+
+    // Victory, Stalemate, Check??
+
+
+    GAMEBOARD.gamestate->print_board();
 }

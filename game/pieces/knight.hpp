@@ -4,7 +4,7 @@
 
 class Knightboard : public Piece {
 public:
-    Knightboard(Player s, Bitboard *gamestate);
+    Knightboard(Player *s, Bitboard *gamestate);
 
     Bitboard compute_attack() override;
     Bitboard compute_movement() override;

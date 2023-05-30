@@ -5,10 +5,10 @@
 
 class Piece {
 public:
-    Bitboard bitboard;
+    Bitboard pieceboard;
     Bitboard* gamestate;
 
-    Player side;
+    Player *side;
 
     // Computes the attack and movement bitboards. Varies depending on piece type.
     virtual Bitboard compute_attack() = 0;

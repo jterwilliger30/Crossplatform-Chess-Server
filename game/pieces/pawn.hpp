@@ -4,7 +4,7 @@
 
 class Pawnboard : public Piece {
 public:
-    Pawnboard(Player s, Bitboard *gamestate);
+    Pawnboard(Player *s, Bitboard *gamestate);
 
     Bitboard compute_attack() override;
     Bitboard compute_movement() override;

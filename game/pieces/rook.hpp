@@ -4,7 +4,7 @@
 
 class Rookboard : public Piece {
 public:
-    Rookboard(Player s, Bitboard *gamestate);
+    Rookboard(Player *s, Bitboard *gamestate);
 
     Bitboard compute_attack() override;
     Bitboard compute_movement() override;
