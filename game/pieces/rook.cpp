@@ -9,7 +9,11 @@ Rookboard::Rookboard(Player *s, Bitboard* gamestate)
 
 Bitboard Rookboard::compute_attack()
 {
-
+    uint64_t attacks = 0;
+    for (int i = 0; i < 8; i++)
+    {
+        
+    }
 }
 
 Bitboard Rookboard::compute_movement()

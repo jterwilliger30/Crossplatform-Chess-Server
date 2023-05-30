@@ -8,22 +8,27 @@ Pawnboard::Pawnboard(Player *s, Bitboard* gamestate)
 
 Bitboard Pawnboard::compute_attack()
 {
-    pieceboard 
+    // Pawns are the only piece where the computation differs depending on white/black
+    uint64_t west_attack, east_attack = 0;
+    if ((bool) side->isWhite)
+    {
+        west_attack = (~(uint64_t) File_Mask::File_A & pieceboard.bitboard) << 9;
+        east_attack = (~(uint64_t) File_Mask::File_H & pieceboard.bitboard) << 7;
+
+        return Bitboard(west_attack | east_attack);
+    }
+    else
+    {
+        west_attack = (~(uint64_t) File_Mask::File_A & pieceboard.bitboard) >> 7;
+        east_attack = (~(uint64_t) File_Mask::File_H & pieceboard.bitboard) >> 9;
+
+        return Bitboard(west_attack | east_attack);
+    }
 }
 
 Bitboard Pawnboard::compute_movement()
 {
     // Pawns are the only piece where the computation differs depending on white/black
-    if ((bool) side->isWhite)
-    {
-
-    }
-    else
-    {
-
-    }
-
-
 }
 
 void Pawnboard::reset_board()

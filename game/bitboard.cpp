@@ -5,8 +5,15 @@
 
 Bitboard::Bitboard()
 {
-    this->bitboard = 0;
+    bitboard = 0;
 }
+
+Bitboard::Bitboard(uint64_t val)
+{
+    bitboard = val;
+}
+
+
 
 void Bitboard::print_board()
 {

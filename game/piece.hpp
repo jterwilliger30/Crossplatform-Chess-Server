@@ -2,6 +2,7 @@
 
 #include "bitboard.hpp"
 #include "player.hpp"
+#include "bit_masks.hpp"
 
 class Piece {
 public:

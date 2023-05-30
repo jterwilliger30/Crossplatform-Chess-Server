@@ -9,6 +9,24 @@ Knightboard::Knightboard(Player *s, Bitboard* gamestate)
 
 Bitboard Knightboard::compute_attack()
 {
+    uint64_t ls_attack = 0, rs_attack = 0;
+
+    uint64_t AB_mask = (uint64_t) File_Mask::File_A | (uint64_t) File_Mask::File_B;
+    uint64_t GH_mask = (uint64_t) File_Mask::File_G | (uint64_t) File_Mask::File_H;
+    
+    ls_attack |= (~AB_mask & pieceboard.bitboard) << 10;
+    rs_attack |= (~AB_mask & pieceboard.bitboard) >> 6;
+
+    ls_attack |= (~(uint64_t) File_Mask::File_A & pieceboard.bitboard) << 17;
+    rs_attack |= (~(uint64_t) File_Mask::File_A & pieceboard.bitboard) >> 15;
+
+    ls_attack |= (~(uint64_t) File_Mask::File_H & pieceboard.bitboard) << 15;
+    rs_attack |= (~(uint64_t) File_Mask::File_H & pieceboard.bitboard) >> 17;
+
+    ls_attack |= (~GH_mask & pieceboard.bitboard) << 6;
+    rs_attack |= (~GH_mask & pieceboard.bitboard) >> 10;
+
+    return Bitboard(ls_attack | rs_attack);
 
 }
 
