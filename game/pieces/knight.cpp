@@ -30,11 +30,6 @@ Bitboard Knightboard::compute_attack()
 
 }
 
-Bitboard Knightboard::compute_movement()
-{
-
-}
-
 void Knightboard::reset_board()
 {
     // Set white knights

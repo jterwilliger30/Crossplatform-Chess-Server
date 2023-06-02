@@ -116,17 +116,17 @@ void Board::print_lettered_board()
     {
         std::make_pair(p1_pawn, "P "),
         std::make_pair(p1_rook, "R "),
-        std::make_pair(p1_knight, "K "),
+        std::make_pair(p1_knight, "Kn"),
         std::make_pair(p1_bishop, "B "),
         std::make_pair(p1_queen, "Q "),
-        std::make_pair(p1_king, "Kn"),
+        std::make_pair(p1_king, "K "),
 
         std::make_pair(p2_pawn, "p "),
         std::make_pair(p2_rook, "r "),
-        std::make_pair(p2_knight, "k "),
+        std::make_pair(p2_knight, "kn"),
         std::make_pair(p2_bishop, "b "),
         std::make_pair(p2_queen, "q "),
-        std::make_pair(p2_king, "kn")
+        std::make_pair(p2_king, "k ")
     };
 
     for (int pc_idx=0; pc_idx < 12; pc_idx++)
@@ -147,4 +147,14 @@ void Board::print_lettered_board()
         std::cout << "\n";
     } std::cout << std::endl;
     
+}
+
+void Board::preview_turn(Player *const current_player)
+{
+
+}
+
+void Board::take_turn(Player *const, Spot start, Spot end)
+{
+
 }

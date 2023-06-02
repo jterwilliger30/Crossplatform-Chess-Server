@@ -23,7 +23,10 @@ public:
     void reset_board();
     void print_lettered_board();
 
-private:
+    void preview_turn(Player *const);
+    void take_turn(Player *const, Spot start, Spot end);
+
+//private:
     Player *const player1;
     Player *const player2;
 

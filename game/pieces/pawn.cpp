@@ -9,27 +9,31 @@ Pawnboard::Pawnboard(Player *const s, Bitboard *const gamestate, Bitboard *const
 Bitboard Pawnboard::compute_attack()
 {
     // Pawns are the only piece where the computation differs depending on white/black
-    uint64_t west_attack = 0, east_attack = 0;
+    uint64_t attack = 0, movement = 0;
     if ((bool) side->isWhite)
     {
-        west_attack = (~(uint64_t) File_Mask::File_A & pieceboard.bitboard) << 9;
-        east_attack = (~(uint64_t) File_Mask::File_H & pieceboard.bitboard) << 7;
+        attack |= (~(uint64_t) File_Mask::File_A & pieceboard.bitboard) << 9;
+        attack |= (~(uint64_t) File_Mask::File_H & pieceboard.bitboard) << 7;
+        attack &= opposing_occupied->bitboard;
 
-        return Bitboard(west_attack | east_attack);
+        movement |= (pieceboard.bitboard << 8) & ~gamestate->bitboard;
+        movement |= (((uint64_t) Rank_Mask::Rank_2 & pieceboard.bitboard) << 16) & ~gamestate->bitboard;
+
+        return Bitboard(attack | movement);
     }
     else
     {
-        west_attack = (~(uint64_t) File_Mask::File_A & pieceboard.bitboard) >> 7;
-        east_attack = (~(uint64_t) File_Mask::File_H & pieceboard.bitboard) >> 9;
+        attack |= (~(uint64_t) File_Mask::File_A & pieceboard.bitboard) >> 7;
+        attack |= (~(uint64_t) File_Mask::File_H & pieceboard.bitboard) >> 9;
+        attack &= opposing_occupied->bitboard;
 
-        return Bitboard(west_attack | east_attack);
+        movement = (pieceboard.bitboard >> 8) & ~gamestate->bitboard;
+        movement |= (((uint64_t) Rank_Mask::Rank_7 & pieceboard.bitboard) >> 16) & ~gamestate->bitboard;
+
+        return Bitboard(attack | movement);
     }
 }
 
-Bitboard Pawnboard::compute_movement()
-{
-    // Pawns are the only piece where the computation differs depending on white/black
-}
 
 void Pawnboard::reset_board()
 {
