@@ -1,15 +1,15 @@
 #include "./pawn.hpp"
 
-Pawnboard::Pawnboard(Player *s, Bitboard* gamestate)
+Pawnboard::Pawnboard(Player *const s, Bitboard *const gamestate, Bitboard *const opposing_occupied) :
+    Piece(s, gamestate, opposing_occupied)
 {
-    this->side = s;
-    this->gamestate = gamestate;
+    // Nuthin...
 }
 
 Bitboard Pawnboard::compute_attack()
 {
     // Pawns are the only piece where the computation differs depending on white/black
-    uint64_t west_attack, east_attack = 0;
+    uint64_t west_attack = 0, east_attack = 0;
     if ((bool) side->isWhite)
     {
         west_attack = (~(uint64_t) File_Mask::File_A & pieceboard.bitboard) << 9;

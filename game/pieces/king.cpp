@@ -1,10 +1,10 @@
 #include "./king.hpp"
 
 
-Kingboard::Kingboard(Player *s, Bitboard* gamestate)
+Kingboard::Kingboard(Player *const s, Bitboard *const gamestate, Bitboard *const opposing_occupied) :
+    Piece(s, gamestate, opposing_occupied)
 {
-    this->side = s;
-    this->gamestate = gamestate;
+    // Nuthin..
 }
 
 Bitboard Kingboard::compute_attack()

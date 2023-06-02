@@ -1,10 +1,10 @@
 #include "./knight.hpp"
 
 
-Knightboard::Knightboard(Player *s, Bitboard* gamestate)
+Knightboard::Knightboard(Player *const s, Bitboard *const gamestate, Bitboard *const opposing_occupied) :
+    Piece(s, gamestate, opposing_occupied)
 {
-    this->side = s;
-    this->gamestate = gamestate;
+    // Nuthin...
 }
 
 Bitboard Knightboard::compute_attack()

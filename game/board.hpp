@@ -11,32 +11,34 @@
 #include "./pieces/knight.hpp"
 
 class Board {
-private:
 public:
-    Player *p1;
-    Player *p2;
-
-    Pawnboard p1_pawn;
-    Bishopboard p1_bishop;
-    Rookboard p1_rook;
-    Knightboard p1_knight;
-    Queenboard p1_queen;
-    Kingboard p1_king;
-
-    Pawnboard p2_pawn;
-    Bishopboard p2_bishop;
-    Rookboard p2_rook;
-    Knightboard p2_knight;
-    Queenboard p2_queen;
-    Kingboard p2_king;
-
-public:
-    Bitboard *gamestate;
-    Board(Player*, Player*);
+    Board(Player *const, Player *const, Bitboard *const, Bitboard *const, Bitboard *const);
     ~Board();
+
+    Bitboard *const gamestate;
+    Bitboard *const p1_occupied;
+    Bitboard *const p2_occupied;
 
     void update_board_state();
     void reset_board();
     void print_lettered_board();
+
+private:
+    Player *const player1;
+    Player *const player2;
+
+    Pawnboard *const p1_pawn;
+    Bishopboard *const p1_bishop;
+    Rookboard *const p1_rook;
+    Knightboard *const p1_knight;
+    Queenboard *const p1_queen;
+    Kingboard *const p1_king;
+
+    Pawnboard *const p2_pawn;
+    Bishopboard *const p2_bishop;
+    Rookboard *const p2_rook;
+    Knightboard *const p2_knight;
+    Queenboard *const p2_queen;
+    Kingboard *const p2_king;
 };
 

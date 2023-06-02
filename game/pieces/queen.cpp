@@ -1,10 +1,10 @@
 #include "./queen.hpp"
 
 
-Queenboard::Queenboard(Player *s, Bitboard* gamestate)
+Queenboard::Queenboard(Player *const s, Bitboard *const gamestate, Bitboard *const opposing_occupied) :
+    Piece(s, gamestate, opposing_occupied)
 {
-    this->side = s;
-    this->gamestate = gamestate;
+    // Nuthin...
 }
 
 Bitboard Queenboard::compute_attack()

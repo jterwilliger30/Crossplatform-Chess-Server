@@ -1,2 +1,2 @@
-all: game.cpp board.cpp bitboard.cpp ./pieces/pawn.cpp ./pieces/bishop.cpp ./pieces/knight.cpp ./pieces/king.cpp ./pieces/queen.cpp ./pieces/rook.cpp
-	g++ -std=c++17 -Wall game.cpp board.cpp bitboard.cpp ./pieces/pawn.cpp ./pieces/bishop.cpp ./pieces/knight.cpp ./pieces/king.cpp ./pieces/queen.cpp ./pieces/rook.cpp
+all: game.cpp board.cpp bitboard.cpp piece.cpp ./pieces/pawn.cpp ./pieces/bishop.cpp ./pieces/knight.cpp ./pieces/king.cpp ./pieces/queen.cpp ./pieces/rook.cpp
+	g++ -std=c++17 -Wall -g game.cpp board.cpp bitboard.cpp piece.cpp ./pieces/pawn.cpp ./pieces/bishop.cpp ./pieces/knight.cpp ./pieces/king.cpp ./pieces/queen.cpp ./pieces/rook.cpp
