@@ -12,36 +12,35 @@
 
 class Board {
 public:
-    Board(Player *const, Player *const, Bitboard *const, Bitboard *const, Bitboard *const);
-    ~Board();
+    Board(PlayerSPtr p1, PlayerSPtr p2, BitboardSPtr GAMESTATE, BitboardSPtr P1_OCCUPIED, BitboardSPtr P2_OCCUPIED);
 
-    Bitboard *const gamestate;
-    Bitboard *const p1_occupied;
-    Bitboard *const p2_occupied;
+    BitboardSPtr gamestate;
+    BitboardSPtr p1_occupied;
+    BitboardSPtr p2_occupied;
 
     void update_board_state();
     void reset_board();
-    void print_lettered_board();
+    void print_board();
 
-    void preview_turn(Player *const);
-    void take_turn(Player *const, Spot start, Spot end);
+    void preview_turn(PlayerSPtr player);
+    void take_turn(PlayerSPtr player, Spot start, Spot end);
 
 //private:
-    Player *const player1;
-    Player *const player2;
+    PlayerSPtr player1;
+    PlayerSPtr player2;
 
-    Pawnboard *const p1_pawn;
-    Bishopboard *const p1_bishop;
-    Rookboard *const p1_rook;
-    Knightboard *const p1_knight;
-    Queenboard *const p1_queen;
-    Kingboard *const p1_king;
+    const std::shared_ptr<Pawnboard> p1_pawn;
+    const std::shared_ptr<Bishopboard> p1_bishop;
+    const std::shared_ptr<Rookboard> p1_rook;
+    const std::shared_ptr<Knightboard> p1_knight;
+    const std::shared_ptr<Queenboard> p1_queen;
+    const std::shared_ptr<Kingboard> p1_king;
 
-    Pawnboard *const p2_pawn;
-    Bishopboard *const p2_bishop;
-    Rookboard *const p2_rook;
-    Knightboard *const p2_knight;
-    Queenboard *const p2_queen;
-    Kingboard *const p2_king;
+    const std::shared_ptr<Pawnboard> p2_pawn;
+    const std::shared_ptr<Bishopboard> p2_bishop;
+    const std::shared_ptr<Rookboard> p2_rook;
+    const std::shared_ptr<Knightboard> p2_knight;
+    const std::shared_ptr<Queenboard> p2_queen;
+    const std::shared_ptr<Kingboard> p2_king;
 };
 

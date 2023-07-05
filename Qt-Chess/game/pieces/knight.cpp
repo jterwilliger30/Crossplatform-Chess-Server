@@ -1,11 +1,9 @@
 #include "./knight.hpp"
 
 
-Knightboard::Knightboard(Player *const s, Bitboard *const gamestate, Bitboard *const opposing_occupied) :
-    Piece(s, gamestate, opposing_occupied)
-{
-    // Nuthin...
-}
+Knightboard::Knightboard(const std::shared_ptr<Player> player, const std::shared_ptr<Bitboard> gamestate, const std::shared_ptr<Bitboard> opposing_occupied) :
+    Piece(player, gamestate, opposing_occupied)
+    { /* Nuthin... */ }
 
 Bitboard Knightboard::compute_attack()
 {

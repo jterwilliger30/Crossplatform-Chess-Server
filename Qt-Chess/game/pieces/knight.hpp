@@ -4,7 +4,7 @@
 
 class Knightboard : public Piece {
 public:
-    Knightboard(Player *const s, Bitboard *const gamestate, Bitboard *const opposing_occupied);
+    Knightboard(const std::shared_ptr<Player> player, const std::shared_ptr<Bitboard> gamestate, const std::shared_ptr<Bitboard> opposing_occupied);
 
     Bitboard compute_attack() override;
 

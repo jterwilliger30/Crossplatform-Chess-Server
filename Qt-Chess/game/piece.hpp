@@ -1,19 +1,24 @@
 #pragma once
 
+#include <memory>
+
 #include "bitboard.hpp"
 #include "player.hpp"
 #include "bit_masks.hpp"
 
+using PlayerSPtr = const std::shared_ptr<Player>;
+using BitboardSPtr = const std::shared_ptr<Bitboard>;
+
 class Piece {
 public:
-    Piece(Player *const side, Bitboard *const gamestate, Bitboard *const opposing_occupied);
+    Piece(PlayerSPtr side, BitboardSPtr gamestate, BitboardSPtr opposing_occupied);
     virtual ~Piece() {};
 
     Bitboard pieceboard;
-    Bitboard *const gamestate;
-    Bitboard *const opposing_occupied;
 
-    Player *const side;
+    BitboardSPtr gamestate;
+    BitboardSPtr opposing_occupied;
+    PlayerSPtr side;
 
     // Computes the attack and movement bitboards. Varies depending on piece type.
     virtual Bitboard compute_attack() = 0;
