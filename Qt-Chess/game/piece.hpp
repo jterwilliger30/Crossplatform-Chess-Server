@@ -10,6 +10,7 @@
 
 using PlayerSPtr = const std::shared_ptr<Player>;
 using BitboardSPtr = const std::shared_ptr<Bitboard>;
+using PieceSPtr = const std::shared_ptr<Piece>;
 
 class Piece {
 public:

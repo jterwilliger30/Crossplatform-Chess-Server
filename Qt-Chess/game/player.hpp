@@ -2,7 +2,7 @@
 #define PLAYER_H
 
 #include <memory>
-#include <vector>
+#include <map>
 
 class Piece;
 
@@ -21,6 +21,6 @@ public:
     Color isWhite;
     player_type isHuman;
 
-    std::vector<std::shared_ptr<Piece>> pieceboard_list;
+    std::map<char, std::shared_ptr<Piece>> pieceboard_map;
 };
 #endif

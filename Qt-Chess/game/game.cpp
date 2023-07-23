@@ -23,15 +23,13 @@ int main()
 
     const std::shared_ptr<Board> GAMEBOARD = std::make_shared<Board>(white_player, black_player, GAME_STATE, P1_OCCUPIED, P2_OCCUPIED);
 
-    GAMEBOARD->print_board();
-    GAMEBOARD->take_turn(white_player);
-
-    // White Turn
-
-    // Victory, Stalemate, Check??
-
-    // Black Turn
-
-    // Victory, Stalemate, Check??
-    
+    while (true)
+    {
+        GAMEBOARD->print_board();
+        GAMEBOARD->take_turn(white_player);
+        // Handle WIN/STALEMATE/CHECK condition
+        GAMEBOARD->print_board();
+        GAMEBOARD->take_turn(black_player);
+        // Handle WIN/STALEMATE/CHECK condition
+    }
 }
