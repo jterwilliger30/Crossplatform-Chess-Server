@@ -25,7 +25,7 @@ public:
     std::string unicode_str;
 
     // Computes the attack and movement bitboards. Varies depending on piece type.
-    virtual Bitboard compute_attack() = 0;
+    virtual Bitboard compute_attack(Bitboard board);
     //virtual Bitboard compute_movement() = 0;
 
     virtual void reset_board();

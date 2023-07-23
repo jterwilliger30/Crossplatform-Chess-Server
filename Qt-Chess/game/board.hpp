@@ -26,7 +26,7 @@ public:
     void print_board();
 
     void preview_turn(PlayerSPtr player);
-    void take_turn(PlayerSPtr player, Spot start, Spot end);
+    void take_turn(PlayerSPtr player);
 
 //private:
     PlayerSPtr player1;

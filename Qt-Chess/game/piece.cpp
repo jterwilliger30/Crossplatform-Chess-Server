@@ -8,7 +8,7 @@ Piece::Piece(PlayerSPtr side, BitboardSPtr gamestate, BitboardSPtr opposing_occu
     // Nuthin...
 }
 
-Bitboard Piece::compute_attack()
+Bitboard Piece::compute_attack(Bitboard board)
 {
     throw std::invalid_argument("Compute attack must be overridden...");
 }

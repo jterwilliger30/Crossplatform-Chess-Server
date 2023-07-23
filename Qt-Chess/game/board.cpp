@@ -3,6 +3,7 @@
 #include <array>
 #include <bitset>
 #include <iostream>
+#include <cstdlib>
 
 #include "piece.hpp"
 
@@ -12,6 +13,10 @@
 #include "./pieces/king.hpp"
 #include "./pieces/queen.hpp"
 #include "./pieces/knight.hpp"
+
+namespace {
+Spot getSpotFromUser();
+}
 
 Board::Board(PlayerSPtr p1, PlayerSPtr p2, BitboardSPtr GAMESTATE, BitboardSPtr P1_OCCUPIED, BitboardSPtr P2_OCCUPIED) :
     gamestate(GAMESTATE),
@@ -35,6 +40,8 @@ Board::Board(PlayerSPtr p1, PlayerSPtr p2, BitboardSPtr GAMESTATE, BitboardSPtr 
     p2_queen(std::make_shared<Queenboard>(p2, GAMESTATE, P1_OCCUPIED)),
     p2_king(std::make_shared<Kingboard>(p2, GAMESTATE, P1_OCCUPIED))
 {
+    p1->pieceboard_list = {p1_pawn, p1_bishop, p1_rook, p1_knight, p1_queen, p1_king};
+    p2->pieceboard_list = {p2_pawn, p2_bishop, p2_rook, p2_knight, p2_queen, p2_king};
     reset_board();
 }
 
@@ -84,11 +91,32 @@ void Board::reset_board()
 
 void Board::print_board()
 {
-    for (int i = 0; i < 64; i++)
-    {
-        //if (p1_pawn->pieceboard.bitboard)
+    std::vector<std::shared_ptr<Piece>> all_boards;
+    all_boards.insert(all_boards.end(), player1->pieceboard_list.begin(), player1->pieceboard_list.end());
+    all_boards.insert(all_boards.end(), player2->pieceboard_list.begin(), player2->pieceboard_list.end());
 
+    for (unsigned int i = 0; i < 64; i++)
+    {
+        bool flag = false;
+        for (auto pcbrd : all_boards)
+        {
+            if (pcbrd->pieceboard.is_occupied(static_cast<Spot>(i)))
+            {
+                std::cout << pcbrd->unicode_str << "  ";
+                flag = true;
+            }
+        }
+        if (!flag)
+        {
+            std::cout << ".  ";
+        }
+
+        if ((i + 1) % 8 == 0)
+        {
+            std::cout << "\n";
+        }
     }
+    std::cout << std::endl;
 }
 
 void Board::preview_turn(PlayerSPtr)
@@ -96,7 +124,35 @@ void Board::preview_turn(PlayerSPtr)
 
 }
 
-void Board::take_turn(PlayerSPtr, Spot start, Spot end)
+void Board::take_turn(PlayerSPtr player)
 {
+    std::cout << (static_cast<bool>(player->isWhite) ? "White" : "Black") << " player's turn: \n";
+    std::cout << "Please enter your move in algebraic notation:\t";
+    Spot start = ::getSpotFromUser();
+    std::cout << static_cast<unsigned int>(start);
+    
+}
 
+namespace {
+Spot getSpotFromUser()
+{
+    Spot retVal;
+    while (true)
+    {
+        std::string start_str;
+        std::cin >> start_str;
+        try
+        {
+            unsigned long a = std::stoul(start_str, nullptr, 0);
+            retVal = static_cast<Spot>(a);
+            break;
+        }
+        catch (std::invalid_argument)
+        {
+            continue;
+        }
+    }
+
+    return retVal;
+}
 }

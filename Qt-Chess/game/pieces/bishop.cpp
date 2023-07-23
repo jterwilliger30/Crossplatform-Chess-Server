@@ -6,12 +6,12 @@ Bishopboard::Bishopboard(const std::shared_ptr<Player> player, const std::shared
         unicode_str = (static_cast<bool>(player->isWhite) ? "\u265D" : "\u2657");
     }
 
-Bitboard Bishopboard::compute_attack()
+Bitboard Bishopboard::compute_attack(Bitboard board)
 {
     uint64_t attack = 0;
 
     uint64_t temp_NE, temp_SE, temp_SW, temp_NW;
-    temp_NE = temp_SE = temp_SW = temp_NW = pieceboard.bitboard;
+    temp_NE = temp_SE = temp_SW = temp_NW = board.bitboard;
 
     bool flag;
 

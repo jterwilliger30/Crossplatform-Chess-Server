@@ -6,29 +6,29 @@ Pawnboard::Pawnboard(const std::shared_ptr<Player> player, const std::shared_ptr
         unicode_str = (static_cast<bool>(player->isWhite) ? "\u265F" : "\u2659");
     }
 
-Bitboard Pawnboard::compute_attack()
+Bitboard Pawnboard::compute_attack(Bitboard board)
 {
     // Pawns are the only piece where the computation differs depending on white/black
     uint64_t attack = 0, movement = 0;
     if (static_cast<bool>(side->isWhite))
     {
-        attack |= (~(uint64_t) File_Mask::File_A & pieceboard.bitboard) << 9;
-        attack |= (~(uint64_t) File_Mask::File_H & pieceboard.bitboard) << 7;
+        attack |= (~(uint64_t) File_Mask::File_A & board.bitboard) << 9;
+        attack |= (~(uint64_t) File_Mask::File_H & board.bitboard) << 7;
         attack &= opposing_occupied->bitboard;
 
-        movement |= (pieceboard.bitboard << 8) & ~gamestate->bitboard;
-        movement |= (((uint64_t) Rank_Mask::Rank_2 & pieceboard.bitboard) << 16) & ~gamestate->bitboard;
+        movement |= (board.bitboard << 8) & ~gamestate->bitboard;
+        movement |= (((uint64_t) Rank_Mask::Rank_2 & board.bitboard) << 16) & ~gamestate->bitboard;
 
         return Bitboard(attack | movement);
     }
     else
     {
-        attack |= (~(uint64_t) File_Mask::File_A & pieceboard.bitboard) >> 7;
-        attack |= (~(uint64_t) File_Mask::File_H & pieceboard.bitboard) >> 9;
+        attack |= (~(uint64_t) File_Mask::File_A & board.bitboard) >> 7;
+        attack |= (~(uint64_t) File_Mask::File_H & board.bitboard) >> 9;
         attack &= opposing_occupied->bitboard;
 
-        movement = (pieceboard.bitboard >> 8) & ~gamestate->bitboard;
-        movement |= (((uint64_t) Rank_Mask::Rank_7 & pieceboard.bitboard) >> 16) & ~gamestate->bitboard;
+        movement = (board.bitboard >> 8) & ~gamestate->bitboard;
+        movement |= (((uint64_t) Rank_Mask::Rank_7 & board.bitboard) >> 16) & ~gamestate->bitboard;
 
         return Bitboard(attack | movement);
     }

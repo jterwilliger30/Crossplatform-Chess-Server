@@ -7,12 +7,12 @@ Queenboard::Queenboard(const std::shared_ptr<Player> player, const std::shared_p
         unicode_str = (static_cast<bool>(player->isWhite) ? "\u265B" : "\u2655");
     }
 
-Bitboard Queenboard::compute_attack()
+Bitboard Queenboard::compute_attack(Bitboard board)
 {
     uint64_t attack = 0;
 
     uint64_t temp_N, temp_NE, temp_E, temp_SE, temp_S, temp_SW, temp_W, temp_NW;
-    temp_N = temp_NE = temp_E = temp_SE = temp_S = temp_SW = temp_W = temp_NW = pieceboard.bitboard;
+    temp_N = temp_NE = temp_E = temp_SE = temp_S = temp_SW = temp_W = temp_NW = board.bitboard;
 
     bool flag;
 

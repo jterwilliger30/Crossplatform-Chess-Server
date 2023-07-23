@@ -7,20 +7,20 @@ Kingboard::Kingboard(const std::shared_ptr<Player> player, const std::shared_ptr
     unicode_str = (static_cast<bool>(player->isWhite) ? "\u265A" : "\u2654");
 }
 
-Bitboard Kingboard::compute_attack()
+Bitboard Kingboard::compute_attack(Bitboard board)
 {
     /* NOTE: To reduce complexity, the computation to detect whether an opposing piece is attacking
     a square the king could otherwise move into is not done here */
     uint64_t movement = 0;
 
-    movement |= pieceboard.bitboard << 8;                                   // N
-    movement |= (pieceboard.bitboard & ~(uint64_t) File_Mask::File_H) << 7; // NE
-    movement |= (pieceboard.bitboard & ~(uint64_t) File_Mask::File_H) >> 1; // E
-    movement |= (pieceboard.bitboard & ~(uint64_t) File_Mask::File_H) >> 9; // SE
-    movement |= pieceboard.bitboard >> 8;                                   // S
-    movement |= (pieceboard.bitboard & ~(uint64_t) File_Mask::File_A) >> 7; // SW
-    movement |= (pieceboard.bitboard & ~(uint64_t) File_Mask::File_A) << 1; // W
-    movement |= (pieceboard.bitboard & ~(uint64_t) File_Mask::File_A) << 9; // NW
+    movement |= board.bitboard << 8;                                   // N
+    movement |= (board.bitboard & ~(uint64_t) File_Mask::File_H) << 7; // NE
+    movement |= (board.bitboard & ~(uint64_t) File_Mask::File_H) >> 1; // E
+    movement |= (board.bitboard & ~(uint64_t) File_Mask::File_H) >> 9; // SE
+    movement |= board.bitboard >> 8;                                   // S
+    movement |= (board.bitboard & ~(uint64_t) File_Mask::File_A) >> 7; // SW
+    movement |= (board.bitboard & ~(uint64_t) File_Mask::File_A) << 1; // W
+    movement |= (board.bitboard & ~(uint64_t) File_Mask::File_A) << 9; // NW
 
     // King can move anywhere except into spots occupied by friendly pieces
     movement &= ~(gamestate->bitboard ^ opposing_occupied->bitboard);

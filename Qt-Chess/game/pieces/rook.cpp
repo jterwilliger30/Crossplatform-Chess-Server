@@ -7,12 +7,12 @@ Rookboard::Rookboard(const std::shared_ptr<Player> player, const std::shared_ptr
         unicode_str = (static_cast<bool>(player->isWhite) ? "\u265C" : "\u2656");
     }
 
-Bitboard Rookboard::compute_attack()
+Bitboard Rookboard::compute_attack(Bitboard board)
 {
     uint64_t attack = 0;
 
     uint64_t temp_N, temp_E, temp_S, temp_W;
-    temp_N = temp_E = temp_S = temp_W = pieceboard.bitboard;
+    temp_N = temp_E = temp_S = temp_W = board.bitboard;
 
     bool flag;
 
