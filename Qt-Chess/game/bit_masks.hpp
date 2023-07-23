@@ -1,4 +1,5 @@
-#pragma once
+#ifndef BIT_MASKS_H
+#define BIT_MASKS_H
 
 #include <cstdint>
 
@@ -41,3 +42,4 @@ enum class Rank_Mask : uint64_t
     Rank_8 =
     0b1111111100000000000000000000000000000000000000000000000000000000ULL
 };
+#endif

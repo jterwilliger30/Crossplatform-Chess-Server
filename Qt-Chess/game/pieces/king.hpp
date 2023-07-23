@@ -1,4 +1,5 @@
-#pragma once
+#ifndef KING_H
+#define KING_H
 
 #include "../piece.hpp"
 
@@ -10,3 +11,4 @@ public:
 
     void reset_board() override;
 };
+#endif

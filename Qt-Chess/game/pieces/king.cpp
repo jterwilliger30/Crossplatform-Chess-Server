@@ -3,7 +3,9 @@
 
 Kingboard::Kingboard(const std::shared_ptr<Player> player, const std::shared_ptr<Bitboard> gamestate, const std::shared_ptr<Bitboard> opposing_occupied) :
     Piece(player, gamestate, opposing_occupied)
-{ /* Nuthin... */ }
+{
+    unicode_str = (static_cast<bool>(player->isWhite) ? "\u265A" : "\u2654");
+}
 
 Bitboard Kingboard::compute_attack()
 {
@@ -30,7 +32,7 @@ Bitboard Kingboard::compute_attack()
 void Kingboard::reset_board()
 {
     // Set white king
-    if ((bool) this->side->isWhite)
+    if (static_cast<bool>(side->isWhite))
     {
         pieceboard.set_bit(Spot::E1);
     }

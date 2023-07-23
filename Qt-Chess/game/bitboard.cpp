@@ -36,13 +36,19 @@ void Bitboard::print_board()
 void Bitboard::set_bit(Spot spt)
 {
     std::bitset<64> bitset = this->bitboard;
-    bitset.set( 63 - (unsigned int) spt , true);
+    bitset.set( 63 - static_cast<unsigned int>(spt) , true);
     this->bitboard = (uint64_t) bitset.to_ullong();
 }
 
 void Bitboard::pop_bit(Spot spt)
 {
     std::bitset<64> bitset = this->bitboard;
-    bitset.set( 63 - (unsigned int) spt , false);
+    bitset.set( 63 - static_cast<unsigned int>(spt) , false);
     this->bitboard = (uint64_t) bitset.to_ullong();
+}
+
+bool Bitboard::is_occupied(Spot spt)
+{
+    std::bitset<64> bitset = this->bitboard;
+    return bitset[63 - static_cast<unsigned int>(spt)];
 }

@@ -2,13 +2,15 @@
 
 Pawnboard::Pawnboard(const std::shared_ptr<Player> player, const std::shared_ptr<Bitboard> gamestate, const std::shared_ptr<Bitboard> opposing_occupied) :
     Piece(player, gamestate, opposing_occupied)
-    { /* Nuthin... */ }
+    {
+        unicode_str = (static_cast<bool>(player->isWhite) ? "\u265F" : "\u2659");
+    }
 
 Bitboard Pawnboard::compute_attack()
 {
     // Pawns are the only piece where the computation differs depending on white/black
     uint64_t attack = 0, movement = 0;
-    if ((bool) side->isWhite)
+    if (static_cast<bool>(side->isWhite))
     {
         attack |= (~(uint64_t) File_Mask::File_A & pieceboard.bitboard) << 9;
         attack |= (~(uint64_t) File_Mask::File_H & pieceboard.bitboard) << 7;
@@ -36,7 +38,7 @@ Bitboard Pawnboard::compute_attack()
 void Pawnboard::reset_board()
 {
     // Set White Pawns
-    if ((bool) side->isWhite)
+    if (static_cast<bool>(side->isWhite))
     {
         pieceboard.set_bit(Spot::A2);
         pieceboard.set_bit(Spot::B2);

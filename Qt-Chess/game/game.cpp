@@ -23,7 +23,7 @@ int main()
 
     const std::shared_ptr<Board> GAMEBOARD = std::make_shared<Board>(white_player, black_player, GAME_STATE, P1_OCCUPIED, P2_OCCUPIED);
 
-    //GAMEBOARD->print_lettered_board();
+    GAMEBOARD->print_board();
 
     // White Turn
 

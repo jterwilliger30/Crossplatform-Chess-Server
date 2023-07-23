@@ -3,7 +3,9 @@
 
 Knightboard::Knightboard(const std::shared_ptr<Player> player, const std::shared_ptr<Bitboard> gamestate, const std::shared_ptr<Bitboard> opposing_occupied) :
     Piece(player, gamestate, opposing_occupied)
-    { /* Nuthin... */ }
+    {
+        unicode_str = (static_cast<bool>(player->isWhite) ? "\u265E" : "\u2658");
+    }
 
 Bitboard Knightboard::compute_attack()
 {
@@ -31,7 +33,7 @@ Bitboard Knightboard::compute_attack()
 void Knightboard::reset_board()
 {
     // Set white knights
-    if ((bool) this->side->isWhite)
+    if (static_cast<bool>(side->isWhite))
     {
         pieceboard.set_bit(Spot::B1);
         pieceboard.set_bit(Spot::G1);

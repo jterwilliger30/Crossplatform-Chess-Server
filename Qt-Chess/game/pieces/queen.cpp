@@ -3,7 +3,9 @@
 
 Queenboard::Queenboard(const std::shared_ptr<Player> player, const std::shared_ptr<Bitboard> gamestate, const std::shared_ptr<Bitboard> opposing_occupied) :
     Piece(player, gamestate, opposing_occupied)
-    { /* Nuthin... */ }
+    {
+        unicode_str = (static_cast<bool>(player->isWhite) ? "\u265B" : "\u2655");
+    }
 
 Bitboard Queenboard::compute_attack()
 {
@@ -225,7 +227,7 @@ Bitboard Queenboard::compute_attack()
 void Queenboard::reset_board()
 {
     // Set white queen
-    if ((bool) this->side->isWhite)
+    if (static_cast<bool>(side->isWhite))
     {
         pieceboard.set_bit(Spot::D1);
     }

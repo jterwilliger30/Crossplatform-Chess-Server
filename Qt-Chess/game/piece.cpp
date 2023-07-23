@@ -7,3 +7,12 @@ Piece::Piece(PlayerSPtr side, BitboardSPtr gamestate, BitboardSPtr opposing_occu
 {
     // Nuthin...
 }
+
+Bitboard Piece::compute_attack()
+{
+    throw std::invalid_argument("Compute attack must be overridden...");
+}
+void Piece::reset_board()
+{
+    throw std::invalid_argument("Reset board must be overridden...");
+}

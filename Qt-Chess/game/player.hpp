@@ -1,4 +1,5 @@
-#pragma once
+#ifndef PLAYER_H
+#define PLAYER_H
 
 enum class Color : bool {
     black = 0, 
@@ -15,3 +16,4 @@ public:
     Color isWhite;
     player_type isHuman;
 };
+#endif

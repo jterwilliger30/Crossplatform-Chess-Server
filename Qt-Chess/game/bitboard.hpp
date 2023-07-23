@@ -1,4 +1,5 @@
-#pragma once
+#ifndef BITBOARD_H
+#define BITBOARD_H
 
 #include <cstdint>
 
@@ -12,8 +13,9 @@ public:
     Bitboard();
     Bitboard(uint64_t);
 
-
     void print_board();
     void set_bit(Spot);
     void pop_bit(Spot);
+    bool is_occupied(Spot);
 };
+#endif

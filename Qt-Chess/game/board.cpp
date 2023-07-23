@@ -84,7 +84,11 @@ void Board::reset_board()
 
 void Board::print_board()
 {
+    for (int i = 0; i < 64; i++)
+    {
+        //if (p1_pawn->pieceboard.bitboard)
 
+    }
 }
 
 void Board::preview_turn(PlayerSPtr)

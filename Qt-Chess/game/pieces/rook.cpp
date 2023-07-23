@@ -3,7 +3,9 @@
 
 Rookboard::Rookboard(const std::shared_ptr<Player> player, const std::shared_ptr<Bitboard> gamestate, const std::shared_ptr<Bitboard> opposing_occupied) :
     Piece(player, gamestate, opposing_occupied)
-    { /* Nuthin... */ }
+    {
+        unicode_str = (static_cast<bool>(player->isWhite) ? "\u265C" : "\u2656");
+    }
 
 Bitboard Rookboard::compute_attack()
 {
@@ -117,7 +119,7 @@ Bitboard Rookboard::compute_attack()
 void Rookboard::reset_board()
 {
     // Set white rooks
-    if ((bool) this->side->isWhite)
+    if (static_cast<bool>(side->isWhite))
     {
         pieceboard.set_bit(Spot::A1);
         pieceboard.set_bit(Spot::H1);

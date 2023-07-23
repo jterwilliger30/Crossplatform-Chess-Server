@@ -1,6 +1,8 @@
-#pragma once
+#ifndef PIECE_H
+#define PIECE_H
 
 #include <memory>
+#include <string>
 
 #include "bitboard.hpp"
 #include "player.hpp"
@@ -20,9 +22,12 @@ public:
     BitboardSPtr opposing_occupied;
     PlayerSPtr side;
 
+    std::string unicode_str;
+
     // Computes the attack and movement bitboards. Varies depending on piece type.
     virtual Bitboard compute_attack() = 0;
     //virtual Bitboard compute_movement() = 0;
 
-    virtual void reset_board() = 0;
+    virtual void reset_board();
 };
+#endif

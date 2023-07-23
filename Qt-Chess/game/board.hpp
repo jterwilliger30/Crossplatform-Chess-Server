@@ -1,4 +1,7 @@
-#pragma once
+#ifndef BOARD_H
+#define BOARD_H
+
+#include <utility>
 
 #include "player.hpp"
 #include "bitboard.hpp"
@@ -43,4 +46,4 @@ public:
     const std::shared_ptr<Queenboard> p2_queen;
     const std::shared_ptr<Kingboard> p2_king;
 };
-
+#endif
