@@ -2,9 +2,5 @@
 Uses bitboard representation... 1 bitboard per each piece type per player (12 total). Only pawn movement differs between players (right shift vs. left shift).
 
 # TODO
-- Consider some sort of global "pop_bit" function that sends a signal to all pieceboards to remove that bit if they have it...
-- Implement overrides to Piece.(hpp/cpp)'s virtual destructor
-
-
-# To Research
-- Can an abstract class have a static member initialized at run-time? Ideally this would allow all pieces to share a single gamestate.
+- Implement GUI, and a message passing protocol b/w engine and GUI
+- What to do about virtual destructor... probably not needed anymore with shared_ptrs

@@ -210,14 +210,23 @@ void Board::take_turn(PlayerSPtr player)
         destination.set_bit(start_end.second);
 
         // Chosen destination is not a valid move for that piece
-        if (!(possible_attacks.bitboard && destination.bitboard)) 
+        if (!(possible_attacks.bitboard & destination.bitboard)) 
+        {
             continue;
+        }
         // Valid move
         else
-        {   chosen_pieceboard->pieceboard.set_bit(start_end.second);
+        {   
+            // Remove opposing piece at the destination bit
+            for (auto opposing_boards : player->opposing_player->pieceboard_map)
+            {
+                opposing_boards.second->pieceboard.pop_bit(start_end.second);
+                // TODO: Add attack to the move log, and add pieces to dead piles
+            }
+            chosen_pieceboard->pieceboard.set_bit(start_end.second);
             chosen_pieceboard->pieceboard.pop_bit(start_end.first);
             break;
         }
     }
-    
+    update_board_state();
 }
