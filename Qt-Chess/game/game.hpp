@@ -1,3 +1,6 @@
+#ifndef GAME_ENGINE_H
+#define GAME_ENGINE_H
+
 #include "bitboard.hpp"
 #include "player.hpp"
 #include "spots_enum.hpp"
@@ -21,3 +24,4 @@ public:
     const std::shared_ptr<Board> GAMEBOARD;
 
 };
+#endif

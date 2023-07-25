@@ -1,8 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-#include "boardspot.h"
-
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     engine(PlayerType::human, PlayerType::human),
@@ -20,11 +18,11 @@ MainWindow::MainWindow(QWidget *parent) :
     {
         for(int j=0;j<8;j++)
         {
-            BoardSpot r(x,y,48,48);
+            QRect r(x,y,48,48);
             if (flag)
-                scene->addRect(r.rect, QPen(Qt::black), QBrush(Qt::black));
+                scene->addRect(r, QPen(Qt::black), QBrush(Qt::black));
             else
-                scene->addRect(r.rect, QPen(Qt::black), QBrush(Qt::white));
+                scene->addRect(r, QPen(Qt::black), QBrush(Qt::white));
 
             x+=48;
             flag = (flag + 1) % 2;
