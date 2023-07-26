@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+
+/*
+    This is how game state will be shared C2C
+*/
+message GameState
+{
+    uint64 p1_pawn = 1;
+    uint64 p2_pawn = 2;
+
+    uint64 p1_knignt = 3;
+    uint64 p2_knignt = 4;
+
+    uint64 p1_rook = 5;
+    uint64 p2_rook = 6;
+
+    uint64 p1_bishop = 7;
+    uint64 p2_bishop = 8;
+
+    uint64 p1_king = 9;
+    uint64 p2_king = 10;
+
+    uint64 p1_queen = 11;
+    uint64 p2_queen = 12;
+}

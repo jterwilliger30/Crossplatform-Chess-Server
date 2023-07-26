@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include "networkinterface.h"
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     engine(PlayerType::human, PlayerType::human),
@@ -36,6 +38,10 @@ MainWindow::MainWindow(QWidget *parent) :
 
     }
     ui->graphicsView->setScene(scene);
+
+
+    NetworkInterface intf("51.38.81.49", 80);
+    intf.initConnection();
 
 
 }

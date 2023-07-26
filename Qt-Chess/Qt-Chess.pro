@@ -22,6 +22,7 @@ SOURCES += \
     game/pieces/rook.cpp \
     main.cpp \
     mainwindow.cpp \
+    networkinterface.cpp
 
 
 HEADERS += \
@@ -39,7 +40,8 @@ HEADERS += \
     game/pieces/queen.hpp \
     game/pieces/rook.hpp \
     game/player.hpp \
-    mainwindow.h
+    mainwindow.h \
+    networkinterface.h
 
 FORMS += \
     mainwindow.ui
