@@ -137,9 +137,13 @@ void Board::print_board()
 {
     std::vector<std::shared_ptr<Piece>> all_boards;
     for (auto pair : player1->pieceboard_map)
+    {
         all_boards.push_back(pair.second);
+    }
     for (auto pair : player2->pieceboard_map)
+    {
         all_boards.push_back(pair.second);
+    }
 
     for (unsigned int i = 0; i < 64; i++)
     {
@@ -204,6 +208,8 @@ void Board::take_turn(PlayerSPtr player)
             case 'K':
                 possible_attacks = ::castAndComputeMove<Kingboard>(player, piece_type, isolated_piece);
                 break;
+            default:
+                throw std::invalid_argument("Internal error. Unknown piece type.");
         }
 
         Bitboard destination;
@@ -217,6 +223,11 @@ void Board::take_turn(PlayerSPtr player)
         // Valid move
         else
         {   
+            //std::shared_ptr<Player> opposing_player = player->opposing_player.lock();
+
+            //if (!opposing_player)
+            //    throw std::invalid_argument("Pointer has gone out of scope...");
+
             // Remove opposing piece at the destination bit
             for (auto opposing_boards : player->opposing_player->pieceboard_map)
             {

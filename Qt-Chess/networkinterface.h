@@ -13,14 +13,27 @@ public:
     void initConnection();
     void sendRequest();
 
-private:
+protected:
     void registerEndpoint(std::string& ip_address, int& port);
 
     asio::io_context context;
     asio::error_code ec;
     asio::ip::tcp::endpoint endpoint;
-
     asio::ip::tcp::socket socket;
+
+};
+
+class ServerInterface : public NetworkInterface
+{
+public:
+    void beginListening();
+    void readConnection();
+
+};
+
+class ClientInterface : public NetworkInterface
+{
+public:
 
 };
 

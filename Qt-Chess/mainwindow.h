@@ -17,10 +17,6 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-
-
-    GameEngine engine;
-
 private:
     Ui::MainWindow *ui;
 };

@@ -5,9 +5,8 @@
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    engine(PlayerType::human, PlayerType::human),
-    ui(new Ui::MainWindow)
 
+    ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
@@ -33,21 +32,16 @@ MainWindow::MainWindow(QWidget *parent) :
         y+=48;
 
         flag = (flag + 1) % 2;
-
-
-
     }
     ui->graphicsView->setScene(scene);
 
 
-    NetworkInterface intf("51.38.81.49", 80);
-    intf.initConnection();
+    GameEngine e(PlayerType::human, PlayerType::human);
+    e.beginGameLoop();
 
-
+    //NetworkInterface intf("51.38.81.49", 80);
+    //intf.initConnection();
 }
-
-
-
 
 MainWindow::~MainWindow()
 {

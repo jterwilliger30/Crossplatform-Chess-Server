@@ -19,10 +19,9 @@ enum class PlayerType : bool {
 
 class Player {
 public:
-    Player(Color _isWhite, PlayerType _isHuman, std::shared_ptr<Player> _opposing_player) :
+    Player(Color _isWhite, PlayerType _isHuman) :
         isWhite(_isWhite),
-        isHuman(_isHuman),
-        opposing_player(_opposing_player)
+        isHuman(_isHuman)
     {
 
     }
