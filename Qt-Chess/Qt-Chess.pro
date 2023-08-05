@@ -1,15 +1,25 @@
-QT       += core gui
+QT += \
+    core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++20
-QMAKE_CXXFLAGS += -v
+QMAKE_CXXFLAGS += -std=c++20 -g
+
+#QT_CONFIG -= no-pkg-config
+INCLUDEPATH += $$PWD/externals/protobuf/
+CONFIG += link_pkgconfig
+PKGCONFIG += lib/pkgconfig
+#LIBS += -L$$PWD/externals/protobuf/ -llibprotobuf
+#INCLUDEPATH += $$PWD/../../../projects/mylib
+
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
 DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    protobuf/schema.pb.cc \
     game/bitboard.cpp \
     game/board.cpp \
     game/game.cpp \
@@ -41,7 +51,8 @@ HEADERS += \
     game/pieces/rook.hpp \
     game/player.hpp \
     mainwindow.h \
-    networkinterface.h
+    networkinterface.h \
+    protobuf/schema.pb.h
 
 FORMS += \
     mainwindow.ui

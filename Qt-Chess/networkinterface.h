@@ -9,31 +9,10 @@
 class NetworkInterface
 {
 public:
-    NetworkInterface(std::string ip_address, int port);
-    void initConnection();
-    void sendRequest();
+    NetworkInterface();
 
-protected:
-    void registerEndpoint(std::string& ip_address, int& port);
-
-    asio::io_context context;
-    asio::error_code ec;
-    asio::ip::tcp::endpoint endpoint;
-    asio::ip::tcp::socket socket;
-
-};
-
-class ServerInterface : public NetworkInterface
-{
-public:
-    void beginListening();
-    void readConnection();
-
-};
-
-class ClientInterface : public NetworkInterface
-{
-public:
+private:
+    void ClientConnect();
 
 };
 
