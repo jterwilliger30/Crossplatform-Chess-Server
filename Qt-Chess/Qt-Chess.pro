@@ -1,18 +1,13 @@
 QT += \
-    core gui
+    core gui \
+    widgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++20
-QMAKE_CXXFLAGS += -std=c++20 -g
 
-#QT_CONFIG -= no-pkg-config
-INCLUDEPATH += $$PWD/externals/protobuf/
-CONFIG += link_pkgconfig
-PKGCONFIG += lib/pkgconfig
-#LIBS += -L$$PWD/externals/protobuf/ -llibprotobuf
-#INCLUDEPATH += $$PWD/../../../projects/mylib
-
+LIBS+=-L/usr/local/lib -lprotoc -lprotobuf
+INCLUDEPATH += /usr/local/include
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -36,6 +31,7 @@ SOURCES += \
 
 
 HEADERS += \
+    protobuf/schema.pb.h \
     $$files("*.hpp", true) \
     $$files("*.ipp", true) \
     game/bit_masks.hpp \
@@ -61,3 +57,4 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+

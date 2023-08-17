@@ -6,7 +6,6 @@ Uses bitboard representation... 1 bitboard per each piece type per player (12 to
 - What to do about virtual destructor... probably not needed anymore with shared_ptrs
 - Unicode characters printed by print_board() don't work for Windows... need to check linux as well
 - It seems the colors of the unicode chess pieces are not standardized :(
-- Protobuf 24.0 just released... if that doesn't work, time to find pre-abseil protobuf
 
 # Build
-- Protobuf 23.4
+- Build assumes you have Protobuf 21.12 installed to /usr/local/lib and /usr/local/include

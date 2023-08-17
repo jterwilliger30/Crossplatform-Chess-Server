@@ -4,493 +4,485 @@
 #include "schema.pb.h"
 
 #include <algorithm>
-#include "google/protobuf/io/coded_stream.h"
-#include "google/protobuf/extension_set.h"
-#include "google/protobuf/wire_format_lite.h"
-#include "google/protobuf/descriptor.h"
-#include "google/protobuf/generated_message_reflection.h"
-#include "google/protobuf/reflection_ops.h"
-#include "google/protobuf/wire_format.h"
-#include "google/protobuf/generated_message_tctable_impl.h"
-// @@protoc_insertion_point(includes)
 
-// Must be included last.
-#include "google/protobuf/port_def.inc"
+#include <google/protobuf/io/coded_stream.h>
+#include <google/protobuf/extension_set.h>
+#include <google/protobuf/wire_format_lite.h>
+#include <google/protobuf/descriptor.h>
+#include <google/protobuf/generated_message_reflection.h>
+#include <google/protobuf/reflection_ops.h>
+#include <google/protobuf/wire_format.h>
+// @@protoc_insertion_point(includes)
+#include <google/protobuf/port_def.inc>
+
 PROTOBUF_PRAGMA_INIT_SEG
-namespace _pb = ::google::protobuf;
-namespace _pbi = ::google::protobuf::internal;
-namespace _fl = ::google::protobuf::internal::field_layout;
-        template <typename>
-PROTOBUF_CONSTEXPR GameState::GameState(::_pbi::ConstantInitialized)
-    : _impl_{
-      /*decltype(_impl_.p1_pawn_)*/ ::uint64_t{0u},
-      /*decltype(_impl_.p2_pawn_)*/ ::uint64_t{0u},
-      /*decltype(_impl_.p1_knignt_)*/ ::uint64_t{0u},
-      /*decltype(_impl_.p2_knignt_)*/ ::uint64_t{0u},
-      /*decltype(_impl_.p1_rook_)*/ ::uint64_t{0u},
-      /*decltype(_impl_.p2_rook_)*/ ::uint64_t{0u},
-      /*decltype(_impl_.p1_bishop_)*/ ::uint64_t{0u},
-      /*decltype(_impl_.p2_bishop_)*/ ::uint64_t{0u},
-      /*decltype(_impl_.p1_king_)*/ ::uint64_t{0u},
-      /*decltype(_impl_.p2_king_)*/ ::uint64_t{0u},
-      /*decltype(_impl_.p1_queen_)*/ ::uint64_t{0u},
-      /*decltype(_impl_.p2_queen_)*/ ::uint64_t{0u},
-      /*decltype(_impl_._cached_size_)*/ {},
-    } {}
+
+namespace _pb = ::PROTOBUF_NAMESPACE_ID;
+namespace _pbi = _pb::internal;
+
+PROTOBUF_CONSTEXPR GameState::GameState(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.p1_pawn_)*/uint64_t{0u}
+  , /*decltype(_impl_.p2_pawn_)*/uint64_t{0u}
+  , /*decltype(_impl_.p1_knignt_)*/uint64_t{0u}
+  , /*decltype(_impl_.p2_knignt_)*/uint64_t{0u}
+  , /*decltype(_impl_.p1_rook_)*/uint64_t{0u}
+  , /*decltype(_impl_.p2_rook_)*/uint64_t{0u}
+  , /*decltype(_impl_.p1_bishop_)*/uint64_t{0u}
+  , /*decltype(_impl_.p2_bishop_)*/uint64_t{0u}
+  , /*decltype(_impl_.p1_king_)*/uint64_t{0u}
+  , /*decltype(_impl_.p2_king_)*/uint64_t{0u}
+  , /*decltype(_impl_.p1_queen_)*/uint64_t{0u}
+  , /*decltype(_impl_.p2_queen_)*/uint64_t{0u}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct GameStateDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR GameStateDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR GameStateDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~GameStateDefaultTypeInternal() {}
   union {
     GameState _instance;
   };
 };
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GameStateDefaultTypeInternal _GameState_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GameStateDefaultTypeInternal _GameState_default_instance_;
 static ::_pb::Metadata file_level_metadata_schema_2eproto[1];
-static constexpr const ::_pb::EnumDescriptor**
-    file_level_enum_descriptors_schema_2eproto = nullptr;
-static constexpr const ::_pb::ServiceDescriptor**
-    file_level_service_descriptors_schema_2eproto = nullptr;
-const ::uint32_t TableStruct_schema_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
-    protodesc_cold) = {
-    ~0u,  // no _has_bits_
-    PROTOBUF_FIELD_OFFSET(::GameState, _internal_metadata_),
-    ~0u,  // no _extensions_
-    ~0u,  // no _oneof_case_
-    ~0u,  // no _weak_field_map_
-    ~0u,  // no _inlined_string_donated_
-    ~0u,  // no _split_
-    ~0u,  // no sizeof(Split)
-    PROTOBUF_FIELD_OFFSET(::GameState, _impl_.p1_pawn_),
-    PROTOBUF_FIELD_OFFSET(::GameState, _impl_.p2_pawn_),
-    PROTOBUF_FIELD_OFFSET(::GameState, _impl_.p1_knignt_),
-    PROTOBUF_FIELD_OFFSET(::GameState, _impl_.p2_knignt_),
-    PROTOBUF_FIELD_OFFSET(::GameState, _impl_.p1_rook_),
-    PROTOBUF_FIELD_OFFSET(::GameState, _impl_.p2_rook_),
-    PROTOBUF_FIELD_OFFSET(::GameState, _impl_.p1_bishop_),
-    PROTOBUF_FIELD_OFFSET(::GameState, _impl_.p2_bishop_),
-    PROTOBUF_FIELD_OFFSET(::GameState, _impl_.p1_king_),
-    PROTOBUF_FIELD_OFFSET(::GameState, _impl_.p2_king_),
-    PROTOBUF_FIELD_OFFSET(::GameState, _impl_.p1_queen_),
-    PROTOBUF_FIELD_OFFSET(::GameState, _impl_.p2_queen_),
-};
+static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_schema_2eproto = nullptr;
+static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_schema_2eproto = nullptr;
 
-static const ::_pbi::MigrationSchema
-    schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-        {0, -1, -1, sizeof(::GameState)},
+const uint32_t TableStruct_schema_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::GameState, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::GameState, _impl_.p1_pawn_),
+  PROTOBUF_FIELD_OFFSET(::GameState, _impl_.p2_pawn_),
+  PROTOBUF_FIELD_OFFSET(::GameState, _impl_.p1_knignt_),
+  PROTOBUF_FIELD_OFFSET(::GameState, _impl_.p2_knignt_),
+  PROTOBUF_FIELD_OFFSET(::GameState, _impl_.p1_rook_),
+  PROTOBUF_FIELD_OFFSET(::GameState, _impl_.p2_rook_),
+  PROTOBUF_FIELD_OFFSET(::GameState, _impl_.p1_bishop_),
+  PROTOBUF_FIELD_OFFSET(::GameState, _impl_.p2_bishop_),
+  PROTOBUF_FIELD_OFFSET(::GameState, _impl_.p1_king_),
+  PROTOBUF_FIELD_OFFSET(::GameState, _impl_.p2_king_),
+  PROTOBUF_FIELD_OFFSET(::GameState, _impl_.p1_queen_),
+  PROTOBUF_FIELD_OFFSET(::GameState, _impl_.p2_queen_),
+};
+static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+  { 0, -1, -1, sizeof(::GameState)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
-    &::_GameState_default_instance_._instance,
-};
-const char descriptor_table_protodef_schema_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-    "\n\014schema.proto\"\341\001\n\tGameState\022\017\n\007p1_pawn\030"
-    "\001 \001(\004\022\017\n\007p2_pawn\030\002 \001(\004\022\021\n\tp1_knignt\030\003 \001("
-    "\004\022\021\n\tp2_knignt\030\004 \001(\004\022\017\n\007p1_rook\030\005 \001(\004\022\017\n"
-    "\007p2_rook\030\006 \001(\004\022\021\n\tp1_bishop\030\007 \001(\004\022\021\n\tp2_"
-    "bishop\030\010 \001(\004\022\017\n\007p1_king\030\t \001(\004\022\017\n\007p2_king"
-    "\030\n \001(\004\022\020\n\010p1_queen\030\013 \001(\004\022\020\n\010p2_queen\030\014 \001"
-    "(\004b\006proto3"
-};
-static ::absl::once_flag descriptor_table_schema_2eproto_once;
-const ::_pbi::DescriptorTable descriptor_table_schema_2eproto = {
-    false,
-    false,
-    250,
-    descriptor_table_protodef_schema_2eproto,
-    "schema.proto",
-    &descriptor_table_schema_2eproto_once,
-    nullptr,
-    0,
-    1,
-    schemas,
-    file_default_instances,
-    TableStruct_schema_2eproto::offsets,
-    file_level_metadata_schema_2eproto,
-    file_level_enum_descriptors_schema_2eproto,
-    file_level_service_descriptors_schema_2eproto,
+  &::_GameState_default_instance_._instance,
 };
 
-// This function exists to be marked as weak.
-// It can significantly speed up compilation by breaking up LLVM's SCC
-// in the .pb.cc translation units. Large translation units see a
-// reduction of more than 35% of walltime for optimized builds. Without
-// the weak attribute all the messages in the file, including all the
-// vtables and everything they use become part of the same SCC through
-// a cycle like:
-// GetMetadata -> descriptor table -> default instances ->
-//   vtables -> GetMetadata
-// By adding a weak function here we break the connection from the
-// individual vtables back into the descriptor table.
+const char descriptor_table_protodef_schema_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
+  "\n\014schema.proto\"\341\001\n\tGameState\022\017\n\007p1_pawn\030"
+  "\001 \001(\004\022\017\n\007p2_pawn\030\002 \001(\004\022\021\n\tp1_knignt\030\003 \001("
+  "\004\022\021\n\tp2_knignt\030\004 \001(\004\022\017\n\007p1_rook\030\005 \001(\004\022\017\n"
+  "\007p2_rook\030\006 \001(\004\022\021\n\tp1_bishop\030\007 \001(\004\022\021\n\tp2_"
+  "bishop\030\010 \001(\004\022\017\n\007p1_king\030\t \001(\004\022\017\n\007p2_king"
+  "\030\n \001(\004\022\020\n\010p1_queen\030\013 \001(\004\022\020\n\010p2_queen\030\014 \001"
+  "(\004b\006proto3"
+  ;
+static ::_pbi::once_flag descriptor_table_schema_2eproto_once;
+const ::_pbi::DescriptorTable descriptor_table_schema_2eproto = {
+    false, false, 250, descriptor_table_protodef_schema_2eproto,
+    "schema.proto",
+    &descriptor_table_schema_2eproto_once, nullptr, 0, 1,
+    schemas, file_default_instances, TableStruct_schema_2eproto::offsets,
+    file_level_metadata_schema_2eproto, file_level_enum_descriptors_schema_2eproto,
+    file_level_service_descriptors_schema_2eproto,
+};
 PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_schema_2eproto_getter() {
   return &descriptor_table_schema_2eproto;
 }
+
 // Force running AddDescriptors() at dynamic initialization time.
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY2
-static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_schema_2eproto(&descriptor_table_schema_2eproto);
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_schema_2eproto(&descriptor_table_schema_2eproto);
+
 // ===================================================================
 
 class GameState::_Internal {
  public:
 };
 
-GameState::GameState(::google::protobuf::Arena* arena)
-    : ::google::protobuf::Message(arena) {
-  SharedCtor(arena);
+GameState::GameState(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:GameState)
 }
 GameState::GameState(const GameState& from)
-    : ::google::protobuf::Message(), _impl_(from._impl_) {
-  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
-      from._internal_metadata_);
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  GameState* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.p1_pawn_){}
+    , decltype(_impl_.p2_pawn_){}
+    , decltype(_impl_.p1_knignt_){}
+    , decltype(_impl_.p2_knignt_){}
+    , decltype(_impl_.p1_rook_){}
+    , decltype(_impl_.p2_rook_){}
+    , decltype(_impl_.p1_bishop_){}
+    , decltype(_impl_.p2_bishop_){}
+    , decltype(_impl_.p1_king_){}
+    , decltype(_impl_.p2_king_){}
+    , decltype(_impl_.p1_queen_){}
+    , decltype(_impl_.p2_queen_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.p1_pawn_, &from._impl_.p1_pawn_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.p2_queen_) -
+    reinterpret_cast<char*>(&_impl_.p1_pawn_)) + sizeof(_impl_.p2_queen_));
   // @@protoc_insertion_point(copy_constructor:GameState)
 }
-inline void GameState::SharedCtor(::_pb::Arena* arena) {
+
+inline void GameState::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
   (void)arena;
+  (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.p1_pawn_){::uint64_t{0u}},
-      decltype(_impl_.p2_pawn_){::uint64_t{0u}},
-      decltype(_impl_.p1_knignt_){::uint64_t{0u}},
-      decltype(_impl_.p2_knignt_){::uint64_t{0u}},
-      decltype(_impl_.p1_rook_){::uint64_t{0u}},
-      decltype(_impl_.p2_rook_){::uint64_t{0u}},
-      decltype(_impl_.p1_bishop_){::uint64_t{0u}},
-      decltype(_impl_.p2_bishop_){::uint64_t{0u}},
-      decltype(_impl_.p1_king_){::uint64_t{0u}},
-      decltype(_impl_.p2_king_){::uint64_t{0u}},
-      decltype(_impl_.p1_queen_){::uint64_t{0u}},
-      decltype(_impl_.p2_queen_){::uint64_t{0u}},
-      /*decltype(_impl_._cached_size_)*/ {},
+      decltype(_impl_.p1_pawn_){uint64_t{0u}}
+    , decltype(_impl_.p2_pawn_){uint64_t{0u}}
+    , decltype(_impl_.p1_knignt_){uint64_t{0u}}
+    , decltype(_impl_.p2_knignt_){uint64_t{0u}}
+    , decltype(_impl_.p1_rook_){uint64_t{0u}}
+    , decltype(_impl_.p2_rook_){uint64_t{0u}}
+    , decltype(_impl_.p1_bishop_){uint64_t{0u}}
+    , decltype(_impl_.p2_bishop_){uint64_t{0u}}
+    , decltype(_impl_.p1_king_){uint64_t{0u}}
+    , decltype(_impl_.p2_king_){uint64_t{0u}}
+    , decltype(_impl_.p1_queen_){uint64_t{0u}}
+    , decltype(_impl_.p2_queen_){uint64_t{0u}}
+    , /*decltype(_impl_._cached_size_)*/{}
   };
 }
+
 GameState::~GameState() {
   // @@protoc_insertion_point(destructor:GameState)
-  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
 }
+
 inline void GameState::SharedDtor() {
-  ABSL_DCHECK(GetArenaForAllocation() == nullptr);
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
+
 void GameState::SetCachedSize(int size) const {
   _impl_._cached_size_.Set(size);
 }
 
-PROTOBUF_NOINLINE void GameState::Clear() {
+void GameState::Clear() {
 // @@protoc_insertion_point(message_clear_start:GameState)
-  ::uint32_t cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&_impl_.p1_pawn_, 0, static_cast<::size_t>(
+  ::memset(&_impl_.p1_pawn_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&_impl_.p2_queen_) -
       reinterpret_cast<char*>(&_impl_.p1_pawn_)) + sizeof(_impl_.p2_queen_));
-  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* GameState::_InternalParse(
-    const char* ptr, ::_pbi::ParseContext* ctx) {
-  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
+const char* GameState::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // uint64 p1_pawn = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.p1_pawn_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 p2_pawn = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _impl_.p2_pawn_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 p1_knignt = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _impl_.p1_knignt_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 p2_knignt = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          _impl_.p2_knignt_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 p1_rook = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
+          _impl_.p1_rook_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 p2_rook = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
+          _impl_.p2_rook_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 p1_bishop = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 56)) {
+          _impl_.p1_bishop_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 p2_bishop = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 64)) {
+          _impl_.p2_bishop_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 p1_king = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 72)) {
+          _impl_.p1_king_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 p2_king = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 80)) {
+          _impl_.p2_king_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 p1_queen = 11;
+      case 11:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 88)) {
+          _impl_.p1_queen_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 p2_queen = 12;
+      case 12:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 96)) {
+          _impl_.p2_queen_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
   return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
 }
 
-
-PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<4, 12, 0, 0, 2> GameState::_table_ = {
-  {
-    0,  // no _has_bits_
-    0, // no _extensions_
-    12, 120,  // max_field_number, fast_idx_mask
-    offsetof(decltype(_table_), field_lookup_table),
-    4294963200,  // skipmap
-    offsetof(decltype(_table_), field_entries),
-    12,  // num_field_entries
-    0,  // num_aux_entries
-    offsetof(decltype(_table_), field_names),  // no aux_entries
-    &_GameState_default_instance_._instance,
-    ::_pbi::TcParser::GenericFallback,  // fallback
-  }, {{
-    {::_pbi::TcParser::MiniParse, {}},
-    // uint64 p1_pawn = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(GameState, _impl_.p1_pawn_), 63>(),
-     {8, 63, 0, PROTOBUF_FIELD_OFFSET(GameState, _impl_.p1_pawn_)}},
-    // uint64 p2_pawn = 2;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(GameState, _impl_.p2_pawn_), 63>(),
-     {16, 63, 0, PROTOBUF_FIELD_OFFSET(GameState, _impl_.p2_pawn_)}},
-    // uint64 p1_knignt = 3;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(GameState, _impl_.p1_knignt_), 63>(),
-     {24, 63, 0, PROTOBUF_FIELD_OFFSET(GameState, _impl_.p1_knignt_)}},
-    // uint64 p2_knignt = 4;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(GameState, _impl_.p2_knignt_), 63>(),
-     {32, 63, 0, PROTOBUF_FIELD_OFFSET(GameState, _impl_.p2_knignt_)}},
-    // uint64 p1_rook = 5;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(GameState, _impl_.p1_rook_), 63>(),
-     {40, 63, 0, PROTOBUF_FIELD_OFFSET(GameState, _impl_.p1_rook_)}},
-    // uint64 p2_rook = 6;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(GameState, _impl_.p2_rook_), 63>(),
-     {48, 63, 0, PROTOBUF_FIELD_OFFSET(GameState, _impl_.p2_rook_)}},
-    // uint64 p1_bishop = 7;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(GameState, _impl_.p1_bishop_), 63>(),
-     {56, 63, 0, PROTOBUF_FIELD_OFFSET(GameState, _impl_.p1_bishop_)}},
-    // uint64 p2_bishop = 8;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(GameState, _impl_.p2_bishop_), 63>(),
-     {64, 63, 0, PROTOBUF_FIELD_OFFSET(GameState, _impl_.p2_bishop_)}},
-    // uint64 p1_king = 9;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(GameState, _impl_.p1_king_), 63>(),
-     {72, 63, 0, PROTOBUF_FIELD_OFFSET(GameState, _impl_.p1_king_)}},
-    // uint64 p2_king = 10;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(GameState, _impl_.p2_king_), 63>(),
-     {80, 63, 0, PROTOBUF_FIELD_OFFSET(GameState, _impl_.p2_king_)}},
-    // uint64 p1_queen = 11;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(GameState, _impl_.p1_queen_), 63>(),
-     {88, 63, 0, PROTOBUF_FIELD_OFFSET(GameState, _impl_.p1_queen_)}},
-    // uint64 p2_queen = 12;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(GameState, _impl_.p2_queen_), 63>(),
-     {96, 63, 0, PROTOBUF_FIELD_OFFSET(GameState, _impl_.p2_queen_)}},
-    {::_pbi::TcParser::MiniParse, {}},
-    {::_pbi::TcParser::MiniParse, {}},
-    {::_pbi::TcParser::MiniParse, {}},
-  }}, {{
-    65535, 65535
-  }}, {{
-    // uint64 p1_pawn = 1;
-    {PROTOBUF_FIELD_OFFSET(GameState, _impl_.p1_pawn_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUInt64)},
-    // uint64 p2_pawn = 2;
-    {PROTOBUF_FIELD_OFFSET(GameState, _impl_.p2_pawn_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUInt64)},
-    // uint64 p1_knignt = 3;
-    {PROTOBUF_FIELD_OFFSET(GameState, _impl_.p1_knignt_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUInt64)},
-    // uint64 p2_knignt = 4;
-    {PROTOBUF_FIELD_OFFSET(GameState, _impl_.p2_knignt_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUInt64)},
-    // uint64 p1_rook = 5;
-    {PROTOBUF_FIELD_OFFSET(GameState, _impl_.p1_rook_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUInt64)},
-    // uint64 p2_rook = 6;
-    {PROTOBUF_FIELD_OFFSET(GameState, _impl_.p2_rook_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUInt64)},
-    // uint64 p1_bishop = 7;
-    {PROTOBUF_FIELD_OFFSET(GameState, _impl_.p1_bishop_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUInt64)},
-    // uint64 p2_bishop = 8;
-    {PROTOBUF_FIELD_OFFSET(GameState, _impl_.p2_bishop_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUInt64)},
-    // uint64 p1_king = 9;
-    {PROTOBUF_FIELD_OFFSET(GameState, _impl_.p1_king_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUInt64)},
-    // uint64 p2_king = 10;
-    {PROTOBUF_FIELD_OFFSET(GameState, _impl_.p2_king_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUInt64)},
-    // uint64 p1_queen = 11;
-    {PROTOBUF_FIELD_OFFSET(GameState, _impl_.p1_queen_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUInt64)},
-    // uint64 p2_queen = 12;
-    {PROTOBUF_FIELD_OFFSET(GameState, _impl_.p2_queen_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUInt64)},
-  }},
-  // no aux_entries
-  {{
-  }},
-};
-
-::uint8_t* GameState::_InternalSerialize(
-    ::uint8_t* target,
-    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+uint8_t* GameState::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:GameState)
-  ::uint32_t cached_has_bits = 0;
-  (void)cached_has_bits;
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
 
   // uint64 p1_pawn = 1;
   if (this->_internal_p1_pawn() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(
-        1, this->_internal_p1_pawn(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(1, this->_internal_p1_pawn(), target);
   }
 
   // uint64 p2_pawn = 2;
   if (this->_internal_p2_pawn() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(
-        2, this->_internal_p2_pawn(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(2, this->_internal_p2_pawn(), target);
   }
 
   // uint64 p1_knignt = 3;
   if (this->_internal_p1_knignt() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(
-        3, this->_internal_p1_knignt(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(3, this->_internal_p1_knignt(), target);
   }
 
   // uint64 p2_knignt = 4;
   if (this->_internal_p2_knignt() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(
-        4, this->_internal_p2_knignt(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(4, this->_internal_p2_knignt(), target);
   }
 
   // uint64 p1_rook = 5;
   if (this->_internal_p1_rook() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(
-        5, this->_internal_p1_rook(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(5, this->_internal_p1_rook(), target);
   }
 
   // uint64 p2_rook = 6;
   if (this->_internal_p2_rook() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(
-        6, this->_internal_p2_rook(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(6, this->_internal_p2_rook(), target);
   }
 
   // uint64 p1_bishop = 7;
   if (this->_internal_p1_bishop() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(
-        7, this->_internal_p1_bishop(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(7, this->_internal_p1_bishop(), target);
   }
 
   // uint64 p2_bishop = 8;
   if (this->_internal_p2_bishop() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(
-        8, this->_internal_p2_bishop(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(8, this->_internal_p2_bishop(), target);
   }
 
   // uint64 p1_king = 9;
   if (this->_internal_p1_king() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(
-        9, this->_internal_p1_king(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(9, this->_internal_p1_king(), target);
   }
 
   // uint64 p2_king = 10;
   if (this->_internal_p2_king() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(
-        10, this->_internal_p2_king(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(10, this->_internal_p2_king(), target);
   }
 
   // uint64 p1_queen = 11;
   if (this->_internal_p1_queen() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(
-        11, this->_internal_p1_queen(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(11, this->_internal_p1_queen(), target);
   }
 
   // uint64 p2_queen = 12;
   if (this->_internal_p2_queen() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(
-        12, this->_internal_p2_queen(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(12, this->_internal_p2_queen(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target =
-        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:GameState)
   return target;
 }
 
-::size_t GameState::ByteSizeLong() const {
+size_t GameState::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:GameState)
-  ::size_t total_size = 0;
+  size_t total_size = 0;
 
-  ::uint32_t cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // uint64 p1_pawn = 1;
   if (this->_internal_p1_pawn() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(
-        this->_internal_p1_pawn());
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_p1_pawn());
   }
 
   // uint64 p2_pawn = 2;
   if (this->_internal_p2_pawn() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(
-        this->_internal_p2_pawn());
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_p2_pawn());
   }
 
   // uint64 p1_knignt = 3;
   if (this->_internal_p1_knignt() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(
-        this->_internal_p1_knignt());
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_p1_knignt());
   }
 
   // uint64 p2_knignt = 4;
   if (this->_internal_p2_knignt() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(
-        this->_internal_p2_knignt());
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_p2_knignt());
   }
 
   // uint64 p1_rook = 5;
   if (this->_internal_p1_rook() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(
-        this->_internal_p1_rook());
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_p1_rook());
   }
 
   // uint64 p2_rook = 6;
   if (this->_internal_p2_rook() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(
-        this->_internal_p2_rook());
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_p2_rook());
   }
 
   // uint64 p1_bishop = 7;
   if (this->_internal_p1_bishop() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(
-        this->_internal_p1_bishop());
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_p1_bishop());
   }
 
   // uint64 p2_bishop = 8;
   if (this->_internal_p2_bishop() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(
-        this->_internal_p2_bishop());
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_p2_bishop());
   }
 
   // uint64 p1_king = 9;
   if (this->_internal_p1_king() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(
-        this->_internal_p1_king());
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_p1_king());
   }
 
   // uint64 p2_king = 10;
   if (this->_internal_p2_king() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(
-        this->_internal_p2_king());
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_p2_king());
   }
 
   // uint64 p1_queen = 11;
   if (this->_internal_p1_queen() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(
-        this->_internal_p1_queen());
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_p1_queen());
   }
 
   // uint64 p2_queen = 12;
   if (this->_internal_p2_queen() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(
-        this->_internal_p2_queen());
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_p2_queen());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::google::protobuf::Message::ClassData GameState::_class_data_ = {
-    ::google::protobuf::Message::CopyWithSourceCheck,
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData GameState::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     GameState::MergeImpl
 };
-const ::google::protobuf::Message::ClassData*GameState::GetClassData() const { return &_class_data_; }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GameState::GetClassData() const { return &_class_data_; }
 
 
-void GameState::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
+void GameState::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
   auto* const _this = static_cast<GameState*>(&to_msg);
   auto& from = static_cast<const GameState&>(from_msg);
   // @@protoc_insertion_point(class_specific_merge_from_start:GameState)
-  ABSL_DCHECK_NE(&from, _this);
-  ::uint32_t cached_has_bits = 0;
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_p1_pawn() != 0) {
@@ -529,7 +521,7 @@ void GameState::MergeImpl(::google::protobuf::Message& to_msg, const ::google::p
   if (from._internal_p2_queen() != 0) {
     _this->_internal_set_p2_queen(from._internal_p2_queen());
   }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void GameState::CopyFrom(const GameState& from) {
@@ -539,14 +531,14 @@ void GameState::CopyFrom(const GameState& from) {
   MergeFrom(from);
 }
 
-PROTOBUF_NOINLINE bool GameState::IsInitialized() const {
+bool GameState::IsInitialized() const {
   return true;
 }
 
 void GameState::InternalSwap(GameState* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::google::protobuf::internal::memswap<
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(GameState, _impl_.p2_queen_)
       + sizeof(GameState::_impl_.p2_queen_)
       - PROTOBUF_FIELD_OFFSET(GameState, _impl_.p1_pawn_)>(
@@ -554,15 +546,19 @@ void GameState::InternalSwap(GameState* other) {
           reinterpret_cast<char*>(&other->_impl_.p1_pawn_));
 }
 
-::google::protobuf::Metadata GameState::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata GameState::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_schema_2eproto_getter, &descriptor_table_schema_2eproto_once,
       file_level_metadata_schema_2eproto[0]);
 }
+
 // @@protoc_insertion_point(namespace_scope)
-namespace google {
-namespace protobuf {
-}  // namespace protobuf
-}  // namespace google
+PROTOBUF_NAMESPACE_OPEN
+template<> PROTOBUF_NOINLINE ::GameState*
+Arena::CreateMaybeMessage< ::GameState >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::GameState >(arena);
+}
+PROTOBUF_NAMESPACE_CLOSE
+
 // @@protoc_insertion_point(global_scope)
-#include "google/protobuf/port_undef.inc"
+#include <google/protobuf/port_undef.inc>
