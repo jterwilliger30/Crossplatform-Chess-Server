@@ -6,8 +6,11 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++20
 
-LIBS+=-L/usr/local/lib -lprotoc -lprotobuf
-INCLUDEPATH += /usr/local/include
+LIBS+= -L/usr/local/lib -lprotoc -lprotobuf
+INCLUDEPATH += \
+    /usr/local/include \
+    $$PWD/externals \
+    $$PWD/externals/asio
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -28,7 +31,6 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     networkinterface.cpp
-
 
 HEADERS += \
     protobuf/schema.pb.h \

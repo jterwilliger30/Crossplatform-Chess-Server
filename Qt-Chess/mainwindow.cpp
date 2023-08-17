@@ -2,8 +2,6 @@
 #include "ui_mainwindow.h"
 #include "networkinterface.h"
 
-#include "protobuf/schema.pb.h"
-
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     engine(PlayerType::human, PlayerType::human),
@@ -11,6 +9,13 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    renderBoard(ui);
+
+    //engine.beginGameLoop();
+}
+
+void MainWindow::renderBoard(Ui::MainWindow* ui)
+{
     auto scene = new QGraphicsScene(this);
 
     int x=0,y=0, flag=0;
@@ -34,8 +39,6 @@ MainWindow::MainWindow(QWidget *parent) :
         flag = (flag + 1) % 2;
     }
     ui->graphicsView->setScene(scene);
-
-    //engine.beginGameLoop();
 }
 
 MainWindow::~MainWindow()

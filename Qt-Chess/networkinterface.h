@@ -3,17 +3,19 @@
 
 #define ASIO_STANDALONE
 #include <asio.hpp>
-#include <asio/ts/buffer.hpp>
-#include <asio/ts/internet.hpp>
 
 class NetworkInterface
 {
 public:
     NetworkInterface();
 
+    void sendGameState();
+
 private:
     void ClientConnect();
+    void ServerListen();
 
+    bool m_isServer; // True if server, false if client
 };
 
 #endif // NETWORKINTERFACE_H

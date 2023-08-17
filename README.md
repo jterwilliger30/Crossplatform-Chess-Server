@@ -8,4 +8,4 @@ Uses bitboard representation... 1 bitboard per each piece type per player (12 to
 - It seems the colors of the unicode chess pieces are not standardized :(
 
 # Build
-- Build assumes you have Protobuf 21.12 installed to /usr/local/lib and /usr/local/include
+- Build assumes you have Protobuf 21.12 installed to /usr/local/lib and /usr/local/include... while protobuf is in the externals folder, it is not currently dynamically compiled or linked

@@ -20,6 +20,7 @@ public:
 
     GameEngine engine;
 private:
+    void renderBoard(Ui::MainWindow* ui);
     Ui::MainWindow *ui;
 };
 #endif // MAINWINDOW_H
