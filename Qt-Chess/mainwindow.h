@@ -4,7 +4,7 @@
 #include <QMainWindow>
 
 #include "QtWidgets/qgraphicsscene.h"
-#include "game/game.hpp"
+#include "game_engine/game.hpp"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

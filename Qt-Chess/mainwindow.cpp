@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     renderBoard(ui);
 
-    //engine.beginGameLoop();
+    engine.beginGameLoop();
 }
 
 void MainWindow::renderBoard(Ui::MainWindow* ui)

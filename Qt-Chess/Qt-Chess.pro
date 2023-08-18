@@ -18,16 +18,16 @@ DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs depr
 
 SOURCES += \
     protobuf/schema.pb.cc \
-    game/bitboard.cpp \
-    game/board.cpp \
-    game/game.cpp \
-    game/piece.cpp \
-    game/pieces/bishop.cpp \
-    game/pieces/king.cpp \
-    game/pieces/knight.cpp \
-    game/pieces/pawn.cpp \
-    game/pieces/queen.cpp \
-    game/pieces/rook.cpp \
+    game_engine/bitboard.cpp \
+    game_engine/board.cpp \
+    game_engine/game.cpp \
+    game_engine/piece.cpp \
+    game_engine/pieces/bishop.cpp \
+    game_engine/pieces/king.cpp \
+    game_engine/pieces/knight.cpp \
+    game_engine/pieces/pawn.cpp \
+    game_engine/pieces/queen.cpp \
+    game_engine/pieces/rook.cpp \
     main.cpp \
     mainwindow.cpp \
     networkinterface.cpp
@@ -36,18 +36,18 @@ HEADERS += \
     protobuf/schema.pb.h \
     $$files("*.hpp", true) \
     $$files("*.ipp", true) \
-    game/bit_masks.hpp \
-    game/bitboard.hpp \
-    game/board.hpp \
-    game/game.hpp \
-    game/piece.hpp \
-    game/pieces/bishop.hpp \
-    game/pieces/king.hpp \
-    game/pieces/knight.hpp \
-    game/pieces/pawn.hpp \
-    game/pieces/queen.hpp \
-    game/pieces/rook.hpp \
-    game/player.hpp \
+    game_engine/bit_masks.hpp \
+    game_engine/bitboard.hpp \
+    game_engine/board.hpp \
+    game_engine/game.hpp \
+    game_engine/piece.hpp \
+    game_engine/pieces/bishop.hpp \
+    game_engine/pieces/king.hpp \
+    game_engine/pieces/knight.hpp \
+    game_engine/pieces/pawn.hpp \
+    game_engine/pieces/queen.hpp \
+    game_engine/pieces/rook.hpp \
+    game_engine/player.hpp \
     mainwindow.h \
     networkinterface.h \
     protobuf/schema.pb.h
