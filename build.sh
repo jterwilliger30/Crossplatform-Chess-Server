@@ -1,1 +1,1 @@
-mkdir ./build_dir && cd ./build_dir && qmake ../Qt-Chess && make -j
+cd ./build_dir && qmake ../Qt-Chess && make -j

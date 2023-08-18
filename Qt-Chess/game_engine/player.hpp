@@ -31,6 +31,7 @@ public:
 
     std::shared_ptr<Player> opposing_player;
 
+    // Keys are {'P', 'B', 'R', 'N', 'Q', 'K'}
     std::map<char, std::shared_ptr<Piece>> pieceboard_map;
 };
 #endif

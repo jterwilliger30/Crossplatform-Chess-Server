@@ -39,6 +39,9 @@ void MainWindow::renderBoard(Ui::MainWindow* ui)
         flag = (flag + 1) % 2;
     }
     ui->graphicsView->setScene(scene);
+
+    NetworkInterface inter;
+    inter.sendGameState(engine.white_player, engine.black_player);
 }
 
 MainWindow::~MainWindow()

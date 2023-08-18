@@ -4,12 +4,14 @@
 #define ASIO_STANDALONE
 #include <asio.hpp>
 
+#include "game_engine/player.hpp"
+
 class NetworkInterface
 {
 public:
     NetworkInterface();
 
-    void sendGameState();
+    void sendGameState(std::shared_ptr<Player> p1, std::shared_ptr<Player> p2);
 
 private:
     void ClientConnect();
