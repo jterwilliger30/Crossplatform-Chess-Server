@@ -78,16 +78,6 @@ void NetworkInterface::unload_protobuffer(std::unique_ptr<char[]> data, size_t s
     p2->pieceboard_map['Q']->pieceboard.bitboard = received_state.p2_queen();
 }
 
-void NetworkInterface::ClientConnect()
-{
-
-}
-
-void NetworkInterface::ServerListen()
-{
-
-}
-
 std::map<char, uint64_t> NetworkInterface::extractBitboards(PlayerSPtr player)
 {
     std::map<char, uint64_t> retVal;

@@ -1,2 +1,0 @@
-all: game.cpp board.cpp bitboard.cpp piece.cpp ./pieces/pawn.cpp ./pieces/bishop.cpp ./pieces/knight.cpp ./pieces/king.cpp ./pieces/queen.cpp ./pieces/rook.cpp
-	g++ -std=c++20 -Wall -g game.cpp board.cpp bitboard.cpp piece.cpp ./pieces/pawn.cpp ./pieces/bishop.cpp ./pieces/knight.cpp ./pieces/king.cpp ./pieces/queen.cpp ./pieces/rook.cpp

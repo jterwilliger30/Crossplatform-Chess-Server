@@ -1,13 +1,13 @@
-
+#include "game_engine/game.hpp"
+#include "networkinterface.h"
 
 int main(int argc, char *argv[])
 {
-    engine(PlayerType::human, PlayerType::human),
-}
+    GameEngine engine(PlayerType::human, PlayerType::human);
+    
+    NetworkInterface a(true);
+    a.load_protobuffer(engine.white_player, engine.black_player);
 
-
-void MainWindow::beginGameLoop()
-{
     while (true)
     {
         engine.GAMEBOARD->print_board();
@@ -21,3 +21,7 @@ void MainWindow::beginGameLoop()
         // (BOTH) Handle WIN/STALEMATE/CHECK condition
     }
 }
+
+
+
+    
