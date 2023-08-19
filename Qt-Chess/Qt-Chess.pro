@@ -5,6 +5,7 @@ QT += \
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++20
+QMAKE_CXXFLAGS += -g
 
 LIBS+= -L/usr/local/lib -lprotoc -lprotobuf
 INCLUDEPATH += \

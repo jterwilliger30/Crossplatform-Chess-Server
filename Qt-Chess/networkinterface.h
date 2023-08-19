@@ -17,6 +17,8 @@ private:
     void ClientConnect();
     void ServerListen();
 
+    std::map<char, uint64_t> extractBitboards(std::shared_ptr<Player>);
+
     bool m_isServer; // True if server, false if client
 };
 

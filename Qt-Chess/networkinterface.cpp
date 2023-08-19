@@ -19,36 +19,37 @@ NetworkInterface::NetworkInterface()
 
 void NetworkInterface::sendGameState(std::shared_ptr<Player> p1, std::shared_ptr<Player> p2)
 {
-    GameState gamestate_protobuf;
+    GameState proto_state;
 
-    gamestate_protobuf.set_p1_pawn(std::dynamic_pointer_cast<Pawnboard>(p1->pieceboard_map['P'])->pieceboard.bitboard);
-    gamestate_protobuf.set_p2_pawn(std::dynamic_pointer_cast<Pawnboard>(p2->pieceboard_map['P'])->pieceboard.bitboard);
+    std::map<char, uint64_t> p1_bitboards = extractBitboards(p1);
+    std::map<char, uint64_t> p2_bitboards = extractBitboards(p2);
 
-    gamestate_protobuf.set_p1_bishop(std::dynamic_pointer_cast<Bishopboard>(p1->pieceboard_map['B'])->pieceboard.bitboard);
-    gamestate_protobuf.set_p2_bishop(std::dynamic_pointer_cast<Bishopboard>(p2->pieceboard_map['B'])->pieceboard.bitboard);
+    proto_state.set_p1_pawn(p1_bitboards['P']);
+    proto_state.set_p2_pawn(p2_bitboards['P']);
 
-    gamestate_protobuf.set_p1_rook(std::dynamic_pointer_cast<Rookboard>(p1->pieceboard_map['R'])->pieceboard.bitboard);
-    gamestate_protobuf.set_p2_rook(std::dynamic_pointer_cast<Rookboard>(p2->pieceboard_map['R'])->pieceboard.bitboard);
+    proto_state.set_p1_knignt(p1_bitboards['N']);
+    proto_state.set_p2_knignt(p2_bitboards['N']);
 
-    gamestate_protobuf.set_p1_king(std::dynamic_pointer_cast<Kingboard>(p1->pieceboard_map['K'])->pieceboard.bitboard);
-    gamestate_protobuf.set_p2_king(std::dynamic_pointer_cast<Kingboard>(p2->pieceboard_map['K'])->pieceboard.bitboard);
+    proto_state.set_p1_rook(p1_bitboards['R']);
+    proto_state.set_p2_rook(p2_bitboards['R']);
 
-    gamestate_protobuf.set_p1_queen(std::dynamic_pointer_cast<Queenboard>(p1->pieceboard_map['P'])->pieceboard.bitboard);
-    gamestate_protobuf.set_p2_queen(std::dynamic_pointer_cast<Queenboard>(p2->pieceboard_map['P'])->pieceboard.bitboard);
+    proto_state.set_p1_bishop(p1_bitboards['B']);
+    proto_state.set_p2_bishop(p2_bitboards['B']);
 
-    gamestate_protobuf.set_p1_knignt(std::dynamic_pointer_cast<Knightboard>(p1->pieceboard_map['N'])->pieceboard.bitboard);
-    gamestate_protobuf.set_p2_knignt(std::dynamic_pointer_cast<Knightboard>(p2->pieceboard_map['N'])->pieceboard.bitboard);
+    proto_state.set_p1_king(p1_bitboards['K']);
+    proto_state.set_p2_king(p2_bitboards['K']);
 
-    size_t message_size = gamestate_protobuf.ByteSizeLong();
+    proto_state.set_p1_queen(p1_bitboards['Q']);
+    proto_state.set_p2_queen(p2_bitboards['Q']);
+
+    size_t message_size = proto_state.ByteSizeLong();
     char* buffer = new char[message_size];
 
-    //if (!(gamestate_protobuf.SerializeToArray(buffer, message_size)))
+    if (!(proto_state.SerializeToArray(buffer, message_size)))
     {
-    //    throw std::invalid_argument("Protobuf serialization failed");
+        throw std::invalid_argument("Protobuf serialization failed");
     }
-
     
-    //std::cout << buffer;
     delete buffer;
 }
 
@@ -60,4 +61,18 @@ void NetworkInterface::ClientConnect()
 void NetworkInterface::ServerListen()
 {
 
+}
+
+std::map<char, uint64_t> NetworkInterface::extractBitboards(std::shared_ptr<Player> player)
+{
+    std::map<char, uint64_t> retVal;
+
+    retVal['P'] = std::dynamic_pointer_cast<Pawnboard>(player->pieceboard_map['P'])->pieceboard.bitboard;
+    retVal['N'] = std::dynamic_pointer_cast<Knightboard>(player->pieceboard_map['N'])->pieceboard.bitboard;
+    retVal['R'] = std::dynamic_pointer_cast<Rookboard>(player->pieceboard_map['R'])->pieceboard.bitboard;
+    retVal['B'] = std::dynamic_pointer_cast<Bishopboard>(player->pieceboard_map['B'])->pieceboard.bitboard;
+    retVal['K'] = std::dynamic_pointer_cast<Kingboard>(player->pieceboard_map['K'])->pieceboard.bitboard;
+    retVal['Q'] = std::dynamic_pointer_cast<Queenboard>(player->pieceboard_map['Q'])->pieceboard.bitboard;
+
+    return retVal;
 }
