@@ -23,6 +23,7 @@ set(SOURCE
     ${CMAKE_CURRENT_SOURCE_DIR}/networkinterface.cpp
 
     ${CMAKE_CURRENT_SOURCE_DIR}/protobuf/schema.pb.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/protobuf/protobuf_asio_interface.cpp
 
     ${CMAKE_CURRENT_SOURCE_DIR}/game_engine/piece.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/game_engine/game.cpp
@@ -43,6 +44,7 @@ set(HEADERS
     ${CMAKE_CURRENT_SOURCE_DIR}/networkinterface.h
 
     ${CMAKE_CURRENT_SOURCE_DIR}/protobuf/schema.pb.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/protobuf/protobuf_asio_interface.hpp
 
     ${CMAKE_CURRENT_SOURCE_DIR}/game_engine/spots_enum.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/game_engine/player.hpp

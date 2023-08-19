@@ -11,12 +11,7 @@ class NetworkInterface
 public:
     NetworkInterface(bool isServer_);
 
-    std::unique_ptr<char[]> load_protobuffer(PlayerSPtr p1, PlayerSPtr p2);
-    void unload_protobuffer(std::unique_ptr<char[]> data, size_t size, PlayerSPtr p1, PlayerSPtr);
-
 private:
-    std::map<char, uint64_t> extractBitboards(PlayerSPtr);
-
     bool m_isServer; // True if server, false if client
 };
 
