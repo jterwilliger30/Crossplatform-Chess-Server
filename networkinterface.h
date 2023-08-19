@@ -9,10 +9,18 @@
 class NetworkInterface
 {
 public:
-    NetworkInterface(bool isServer_);
+    enum class GameMode : bool {
+        Player_vs_Player,
+        Single_Player
+    };
+
+    NetworkInterface();
 
 private:
-    bool m_isServer; // True if server, false if client
+    asio::ip::tcp::socket initSocket(unsigned short);
+
+    std::vector<std::unique_ptr<asio::ip::tcp::socket>> m_player_socket_map;
+    
 };
 
 #endif // NETWORKINTERFACE_H

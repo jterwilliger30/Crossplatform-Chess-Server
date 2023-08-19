@@ -13,18 +13,18 @@ int main(int argc, char *argv[])
     
     GameEngine engine(PlayerType::human, PlayerType::human);
 
-    NetworkInterface a(true);
+    NetworkInterface a;
 
     while (true)
     {
         engine.GAMEBOARD->print_board();
         engine.GAMEBOARD->take_turn(engine.white_player);
-        // Synchronize game state with clients
+        // Synchronize game state with client(s)
         // (BOTH) Handle WIN/STALEMATE/CHECK condition
 
         engine.GAMEBOARD->print_board();
         engine.GAMEBOARD->take_turn(engine.black_player);
-        // Synchronize game state with clients
+        // Synchronize game state with client(s)
         // (BOTH) Handle WIN/STALEMATE/CHECK condition
     }
 }
