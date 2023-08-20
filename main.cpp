@@ -13,8 +13,18 @@ int main(int argc, char *argv[])
     
     GameEngine engine(PlayerType::human, PlayerType::human);
 
-    NetworkInterface a;
+    NetworkInterface intf;
+    intf.initSocket(12819);
 
+    while (true)
+    {
+        intf.waitForResponse();
+        std::cout << intf.readRequest() << std::endl;
+        intf.sendResponse("SERVER RESP.\n");
+    }
+
+
+    /*
     while (true)
     {
         engine.GAMEBOARD->print_board();
@@ -27,6 +37,7 @@ int main(int argc, char *argv[])
         // Synchronize game state with client(s)
         // (BOTH) Handle WIN/STALEMATE/CHECK condition
     }
+    */
 }
 
 

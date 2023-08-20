@@ -3,6 +3,7 @@
 
 #define ASIO_STANDALONE
 #include <asio.hpp>
+#include <iostream>
 
 #include "game_engine/piece.hpp"
 
@@ -16,11 +17,18 @@ public:
 
     NetworkInterface();
 
+    void initSocket(unsigned short);
+    void waitForResponse();
+    std::string readRequest();
+    void sendResponse(std::string msg);
 private:
-    asio::ip::tcp::socket initSocket(unsigned short);
+   //std::vector<std::unique_ptr<asio::ip::tcp::socket>> m_player_socket_map;
 
-    std::vector<std::unique_ptr<asio::ip::tcp::socket>> m_player_socket_map;
-    
+    asio::error_code ec;
+    asio::io_context context;
+    std::unique_ptr<asio::ip::tcp::endpoint> ep;
+    std::unique_ptr<asio::ip::tcp::acceptor> acceptor;
+    std::unique_ptr<asio::ip::tcp::socket> sock;
 };
 
 #endif // NETWORKINTERFACE_H

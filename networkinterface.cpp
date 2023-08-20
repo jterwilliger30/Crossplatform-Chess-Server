@@ -1,31 +1,54 @@
 #include "networkinterface.h"
 
+#include <chrono>
+
 NetworkInterface::NetworkInterface()
 {
     // Begin listening
 }
 
-bool NetworkInterface::initSocket(unsigned short port_num)
+void NetworkInterface::initSocket(unsigned short port_num)
 {
-    asio::ip::tcp::endpoint ep(asio::ip::address_v4::any(), port_num);
-    asio::io_context context;
-    try
+    ep = std::make_unique<asio::ip::tcp::endpoint>(asio::ip::tcp::v4(), port_num);
+    acceptor = std::make_unique<asio::ip::tcp::acceptor>(context, *ep); 
+    sock = std::make_unique<asio::ip::tcp::socket>(context);
+
+    std::cout << "[Server] Waiting for connection" << std::endl;
+    acceptor->accept(*sock);
+    std::cout << "[Server] Accepted a connection from client" << std::endl;
+}
+
+void NetworkInterface::waitForResponse()
+{
+    if (sock->is_open())
     {
-        asio::ip::tcp::acceptor acceptor(context, ep.protocol());
-        acceptor.bind(ep);
-        acceptor.listen();
-        asio::ip::tcp::socket sock(context);
-        acceptor.accept(sock);
-        //thread t(hearbeatSender,sock); 
-        //process(sock);
-        //t.join();
+        size_t bytes = 0;
+        while (bytes == 0)
+        {
+            bytes = sock->available();
+        }
+    }
+}
 
-        //m_player_socket_map.push_back()
+std::string NetworkInterface::readRequest()
+{
+    std::vector<char> m_buffer(1024);
 
-        return true;
-
-    } catch (...)
+    if (sock->is_open())
     {
-        return false;
+        sock->read_some(asio::buffer(m_buffer.data(), m_buffer.size()));
+    }
+
+    std::string request(m_buffer.begin(), m_buffer.end());
+
+    return request;
+}
+
+void NetworkInterface::sendResponse(std::string msg)
+{
+    if (sock->is_open())
+    {
+        sock->write_some(asio::buffer(msg), ec);
+        context.run();
     }
 }
