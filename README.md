@@ -8,4 +8,4 @@
 - It seems the colors of the unicode chess pieces are not standardized :(
 
 # Build
-- Build assumes you have Protobuf 21.12 installed to /usr/local/lib and /usr/local/include... while protobuf is in the externals folder, it is not currently dynamically compiled or linked
+- Build assumes you have Protobuf 21.12 installed somewhere CMake can find it... while protobuf is in the externals folder, it is not currently dynamically compiled or linked. Building protobuf should just be as simple as calling 'cmake .' or 'cmake3', then 'make', then 'sudo make install'.
