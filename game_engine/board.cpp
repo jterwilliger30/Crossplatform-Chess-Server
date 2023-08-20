@@ -3,6 +3,7 @@
 #include <array>
 #include <bitset>
 #include <iostream>
+#include <vector>
 #include <cstdlib>
 
 #include "piece.hpp"
