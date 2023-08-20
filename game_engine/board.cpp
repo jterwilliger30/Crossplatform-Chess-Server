@@ -36,7 +36,16 @@ void getUserMove(PlayerSPtr player, char& piece_type, std::pair<Spot, Spot>& sta
     while (true)
     {
         std::getline(std::cin, user_input);
-        std::erase(user_input, ' ');
+
+        std::string temp;
+        for (char c : user_input)
+        {
+            if (c == ' ')
+                continue;
+            temp += c;
+        }
+
+
         for (char& c : user_input)
         {
             if (isalpha(static_cast<unsigned char>(c)))
