@@ -2,9 +2,30 @@
 
 #include <chrono>
 
-NetworkInterface::NetworkInterface()
+NetworkInterface::NetworkInterface() :
+    connected_players(0)
 {
     // Begin listening
+}
+
+bool NetworkInterface::setMode(short mode)
+{
+    switch (mode)
+    {
+        case 0:
+            m_playerMode = ClientMode::Terminal;
+            break;
+        case 1:
+            m_playerMode = ClientMode::Browser;
+            break;
+        case 2:
+            m_playerMode = ClientMode::QtGUI;
+            break;
+        default:
+            return false;
+    }
+
+    return true;
 }
 
 void NetworkInterface::initSocket(unsigned short port_num)

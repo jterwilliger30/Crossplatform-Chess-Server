@@ -10,19 +10,25 @@
 class NetworkInterface
 {
 public:
-    enum class GameMode : bool {
-        Player_vs_Player,
-        Single_Player
+    enum class ClientMode {
+        Terminal,
+        Browser,
+        QtGUI
     };
 
     NetworkInterface();
+    bool setMode(short);
 
     void initSocket(unsigned short);
     void waitForResponse();
     std::string readRequest();
     void sendResponse(std::string msg);
+
+    int connected_players; 
 private:
    //std::vector<std::unique_ptr<asio::ip::tcp::socket>> m_player_socket_map;
+
+    ClientMode m_playerMode;
 
     asio::error_code ec;
     asio::io_context context;

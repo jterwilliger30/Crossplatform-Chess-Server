@@ -1,8 +1,8 @@
 #include "game.hpp"
 
-GameEngine::GameEngine(PlayerType p1, PlayerType p2) : 
-    white_player(std::make_shared<Player>(Color::white, p1)),
-    black_player(std::make_shared<Player>(Color::black, p2)),
+GameEngine::GameEngine(PlayerSPtr p1, PlayerSPtr p2) : 
+    white_player(p1),
+    black_player(p2),
     GAME_STATE(std::make_shared<Bitboard>()),
     P1_OCCUPIED(std::make_shared<Bitboard>()),
     P2_OCCUPIED(std::make_shared<Bitboard>()),

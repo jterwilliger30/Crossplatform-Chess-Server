@@ -6,7 +6,6 @@
 
 class Piece;
 
-
 enum class Color : bool {
     black = 0, 
     white = 1
@@ -19,12 +18,7 @@ enum class PlayerType : bool {
 
 class Player {
 public:
-    Player(Color _isWhite, PlayerType _isHuman) :
-        isWhite(_isWhite),
-        isHuman(_isHuman)
-    {
-
-    }
+    Player() {};
 
     Color isWhite;
     PlayerType isHuman;

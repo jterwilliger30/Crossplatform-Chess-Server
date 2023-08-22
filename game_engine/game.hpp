@@ -4,15 +4,18 @@
 #include "bitboard.hpp"
 #include "player.hpp"
 #include "spots_enum.hpp"
+#include "piece.hpp"
 
 #include "board.hpp"
 
 #include <iostream>
 
+using PlayerSPtr = const std::shared_ptr<Player>;
+
 class GameEngine
 {
 public:
-    GameEngine(PlayerType p1, PlayerType p2);
+    GameEngine(PlayerSPtr p1, PlayerSPtr p2);
 
     PlayerSPtr white_player;
     PlayerSPtr black_player;
