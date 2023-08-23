@@ -21,6 +21,7 @@ set(SOURCE
     ${PROTO_SRCS}
     ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/networkinterface.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/PlayerInterface.cpp
 
     ${CMAKE_CURRENT_SOURCE_DIR}/protobuf/schema.pb.cc
     ${CMAKE_CURRENT_SOURCE_DIR}/protobuf/protobuf_asio_interface.cpp
@@ -42,6 +43,7 @@ set(HEADERS
     ${HEADERS}
     ${PROTO_HDRS}
     ${CMAKE_CURRENT_SOURCE_DIR}/networkinterface.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/PlayerInterface.hpp
 
     ${CMAKE_CURRENT_SOURCE_DIR}/protobuf/schema.pb.h
     ${CMAKE_CURRENT_SOURCE_DIR}/protobuf/protobuf_asio_interface.hpp

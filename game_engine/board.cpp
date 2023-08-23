@@ -28,49 +28,6 @@ Bitboard castAndComputeMove(PlayerSPtr player, char piece_type, Bitboard isolate
         throw std::invalid_argument("Cast failed");
 }
 
-void getUserMove(PlayerSPtr player, char& piece_type, std::pair<Spot, Spot>& start_end)
-{
-    std::cout << (static_cast<bool>(player->isWhite) ? "White" : "Black") << " player's turn. \n";
-    std::cout << "Please enter your move in long algebraic notation:\t";
-    std::string user_input, str_start, str_end;
-
-    while (true)
-    {
-        std::getline(std::cin, user_input);
-
-        std::string temp;
-        for (char c : user_input)
-        {
-            if (c == ' ')
-                continue;
-            temp += c;
-        }
-
-
-        for (char& c : user_input)
-        {
-            if (isalpha(static_cast<unsigned char>(c)))
-                c = toupper(c);
-        }
-        piece_type = user_input[0];
-        str_start = user_input.substr(1, 2);
-        str_end = user_input.substr(3, 2);
-
-        try
-        {
-            std::array<char, 6> valid_types = {'P', 'B', 'R', 'N', 'Q', 'K'};
-            if (std::find(valid_types.begin(), valid_types.end(), piece_type) == valid_types.end())
-                throw std::out_of_range("Invalid piece type");
-            start_end = {::str_to_spot.at(str_start), ::str_to_spot.at(str_end)};
-            break;
-        }
-        catch (std::out_of_range)
-        {
-            std::cout << "\nInvalid... Please re-enter your choice:\t";
-            continue;
-        }
-    }
-}
 }
 
 Board::Board(PlayerSPtr p1, PlayerSPtr p2, BitboardSPtr GAMESTATE, BitboardSPtr P1_OCCUPIED, BitboardSPtr P2_OCCUPIED) :
@@ -144,8 +101,10 @@ void Board::reset_board()
     update_board_state();
 }
 
-void Board::print_board()
+std::string Board::print_board()
 {
+    std::string board_string;
+
     std::vector<std::shared_ptr<Piece>> all_boards;
     for (auto pair : player1->pieceboard_map)
     {
@@ -163,21 +122,25 @@ void Board::print_board()
         {
             if (pcbrd->pieceboard.is_occupied(static_cast<Spot>(i)))
             {
-                std::cout << pcbrd->unicode_str << "  ";
+                board_string += pcbrd->unicode_str + "  ";
                 flag = true;
             }
         }
         if (!flag)
         {
-            std::cout << ".  ";
+            board_string += ".  ";
         }
 
         if ((i + 1) % 8 == 0)
         {
-            std::cout << "\n";
+            board_string += "\n";
         }
     }
-    std::cout << std::endl;
+    board_string += "\n";
+
+    std::cout << board_string << std::endl;
+
+    return board_string;
 }
 
 void Board::preview_turn(PlayerSPtr)
@@ -185,13 +148,12 @@ void Board::preview_turn(PlayerSPtr)
 
 }
 
-void Board::take_turn(PlayerSPtr player)
+void Board::take_turn(PlayerSPtr& player, std::pair<char, std::pair<Spot, Spot>> move)
 {
     while (true)
     {
-        char piece_type;
-        std::pair<Spot, Spot> start_end;
-        ::getUserMove(player, piece_type, start_end);
+        char piece_type = move.first;
+        std::pair<Spot, Spot> start_end = move.second;
 
         Bitboard chosen_piece_mask;
         chosen_piece_mask.set_bit(start_end.first);

@@ -24,6 +24,8 @@ public:
     std::string readRequest();
     void sendResponse(std::string msg);
 
+    std::pair<char, std::pair<Spot, Spot>> getUserMove(bool isWhite);
+
     int connected_players; 
 private:
    //std::vector<std::unique_ptr<asio::ip::tcp::socket>> m_player_socket_map;

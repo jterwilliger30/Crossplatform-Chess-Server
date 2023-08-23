@@ -13,6 +13,9 @@
 #include "./pieces/queen.hpp"
 #include "./pieces/knight.hpp"
 
+#include "networkinterface.h"
+#include "PlayerInterface.hpp"
+
 class Board {
 public:
     Board(PlayerSPtr p1, PlayerSPtr p2, BitboardSPtr GAMESTATE, BitboardSPtr P1_OCCUPIED, BitboardSPtr P2_OCCUPIED);
@@ -23,10 +26,10 @@ public:
 
     void update_board_state();
     void reset_board();
-    void print_board();
+    std::string print_board();
 
     void preview_turn(PlayerSPtr player);
-    void take_turn(PlayerSPtr player);
+    void take_turn(PlayerSPtr& player, std::pair<char, std::pair<Spot, Spot>> move);
 
 //private:
     PlayerSPtr player1;

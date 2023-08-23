@@ -3,6 +3,7 @@
 #include "game_engine/piece.hpp"
 
 #include "networkinterface.h"
+#include "PlayerInterface.hpp"
 
 #include <cstdlib>
 
@@ -22,9 +23,14 @@ std::vector<std::string> parseRequest(std::string request)
         {
             continue;
         }
-
-        tmp += c;
+        else
+        {
+            tmp += c;
+        }
     }
+    str_list.push_back(tmp);
+
+    return str_list;
 }
 
 void assignColors(PlayerSPtr p1, PlayerSPtr p2)
@@ -45,44 +51,30 @@ void assignColors(PlayerSPtr p1, PlayerSPtr p2)
     }
 }
 
-class PlayerInterface
-{
-public:
-    PlayerInterface(PlayerSPtr player_) :
-        player(player_) 
-    {
-        interface = nullptr;
-    }
-
-    void setInterface(std::shared_ptr<NetworkInterface> ptr_) 
-    {
-        interface = ptr_;
-    }
-
-    PlayerSPtr player;
-    std::shared_ptr<NetworkInterface> interface;
-};
-
 int main(int argc, char *argv[])
 {
+    /*  #############  SETUP  #############
+
+        Setup necessary irrespective of player type (human or computer) or client type (GUI, terminal, browser)
+    */
 
     PlayerInterface p1(std::make_shared<Player>());
     PlayerInterface p2(std::make_shared<Player>());
 
     assignColors(p1.player, p2.player);
     
-    
-
-    // Server begins listing on XYZ port waiting for player
-        // When player connects, server asks if want to wait for 2nd player or play AI
-
-        // If AI, server inits stockfish and plugs that into player2
-            // Game begins
-        // Else if 2nd player, wait for second player
-            // 2nd player connects, and game begins
-    
+    // Player 1 is always human
     p1.player->isHuman = PlayerType::human;
     p1.interface = std::make_shared<NetworkInterface>();
+
+
+    /*  #############  CLIENT HANDSHAKE  #############
+
+        Waits for connection from first player (always human). Upon connection, client will tell
+        the server it wants to play and its client type (GUI, terminal, browser). If the player is 
+        the first to connect, the server will ask if the client wants to player single or multiplayer.
+        Otherwise, server will respond with 'occupied'.
+    */
 
     p1.interface->initSocket(12819);
     p1.interface->waitForResponse();
@@ -93,27 +85,53 @@ int main(int argc, char *argv[])
         p1.interface->setMode(std::stoi(p1_msg[1]));  // CHANGE TO SHORT
         // Send message where client will choose b/w playing AI or PvP
         p1.interface->sendResponse("p1 choice");
+
+        p1.interface->waitForResponse();
+
+        std::string request = p1.interface->readRequest();
+        if (request[0] == '0')
+        {
+            // Singleplayer
+            std::cout << "[Server] starting game!\n";
+            //throw std::exception(); // (Stockfish integration not yet supported)
+        }
+        else if (request[0] == '1')
+        {
+            // Wait for second player
+            std::cout << "[Server] waiting for second player...\n";
+        }
+        else
+        {
+            throw std::exception();
+        }
     }
 
+    /*  #############  GAME BEGINS  #############
 
-    //GameEngine engine(, );  // Player 1 and Player 2...
+        The game logic from this point forward should be identical for all gamemodes and client types,
+        regardless whether Player vs AI or Player vs Player, or GUI vs terminal, GUI vs browser, etc...
+    */
+
+    GameEngine engine(p1.player, p2.player);
+
     
-
-
-    /*
     while (true)
     {
-        engine.GAMEBOARD->print_board();
-        engine.GAMEBOARD->take_turn(engine.white_player);
+        p1.interface->sendResponse(engine.GAMEBOARD->print_board());
+        auto move = p1.interface->getUserMove(static_cast<bool>(p1.player->isWhite));
+        engine.GAMEBOARD->take_turn(p1.player, move);
+
+        
+        p1.interface->sendResponse(engine.GAMEBOARD->print_board());
+
         // Synchronize game state with client(s)
         // (BOTH) Handle WIN/STALEMATE/CHECK condition
 
-        engine.GAMEBOARD->print_board();
-        engine.GAMEBOARD->take_turn(engine.black_player);
+        //engine.GAMEBOARD->print_board();
+        //engine.GAMEBOARD->take_turn(engine.black_player);
         // Synchronize game state with client(s)
         // (BOTH) Handle WIN/STALEMATE/CHECK condition
     }
-    */
 
 
 }

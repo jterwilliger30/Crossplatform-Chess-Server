@@ -1,4 +1,5 @@
 #include "networkinterface.h"
+#include "spots_enum.hpp"
 
 #include <chrono>
 
@@ -71,5 +72,62 @@ void NetworkInterface::sendResponse(std::string msg)
     {
         sock->write_some(asio::buffer(msg), ec);
         context.run();
+    }
+}
+
+std::pair<char, std::pair<Spot, Spot>> NetworkInterface::getUserMove(bool isWhite)
+{
+    sendResponse((isWhite ? "White player's turn.\n" : "Black player's turn.\n"));
+    std::cout << "Please enter your move in long algebraic notation:\t";
+    std::string user_input, str_start, str_end;
+
+
+    char piece_type;
+    std::pair<Spot, Spot> start_end;
+
+    while (true)
+    {
+        waitForResponse();
+        user_input = readRequest();
+
+        static int bc = 0;
+        std::cout << user_input << " " << bc << std::endl;
+
+        std::string temp;
+        for (char c : user_input)
+        {
+            if (c == ' ')
+                continue;
+            temp += c;
+        }
+
+
+        for (char& c : user_input)
+        {
+            if (isalpha(static_cast<unsigned char>(c)))
+                c = toupper(c);
+        }
+        piece_type = user_input[0];  // Value to be returned!
+
+        str_start = user_input.substr(1, 2);
+        str_end = user_input.substr(3, 2);
+
+        try
+        {
+            if (!(piece_type == 'P' || piece_type == 'B' || piece_type == 'R' || piece_type == 'N' || piece_type == 'Q' || piece_type == 'K'))
+            {
+                std::cout << "throw";
+                throw std::out_of_range("Invalid piece type");
+            }
+            start_end = {::str_to_spot.at(str_start), ::str_to_spot.at(str_end)}; // Value to be returned!
+
+            std::cout << "True";
+            return {piece_type, start_end};
+        }
+        catch (std::out_of_range)
+        {
+            std::cout << "\nInvalid... Please re-enter your choice:\t";
+            continue;
+        }
     }
 }

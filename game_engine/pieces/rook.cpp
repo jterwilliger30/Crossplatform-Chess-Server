@@ -4,7 +4,7 @@
 Rookboard::Rookboard(const std::shared_ptr<Player> player, const std::shared_ptr<Bitboard> gamestate, const std::shared_ptr<Bitboard> opposing_occupied) :
     Piece(player, gamestate, opposing_occupied)
     {
-        unicode_str = (static_cast<bool>(player->isWhite) ? "\u265C" : "\u2656");
+        unicode_str = (static_cast<bool>(player->isWhite) ? "R" : "r");
     }
 
 Bitboard Rookboard::compute_attack(Bitboard board)
