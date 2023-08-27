@@ -3,6 +3,7 @@
 
 #include <memory>
 #include <string>
+#include <stdexcept>
 
 #include "bitboard.hpp"
 #include "player.hpp"

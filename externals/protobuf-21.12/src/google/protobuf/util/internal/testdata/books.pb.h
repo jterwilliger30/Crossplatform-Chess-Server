@@ -3990,20 +3990,20 @@ class TestPrimitiveFieldsWithSameJsonName final :
   enum : int {
     kValStr1FieldNumber_1 = 1,
     kValStr1FieldNumber = 2,
-    kValInt321FieldNumber_3 = 3,
-    kValInt321FieldNumber = 4,
+    kValInt321FieldNumber = 3,
+    kValInt321FieldNumber_4 = 4,
     kValUint321FieldNumber_5 = 5,
     kValUint321FieldNumber = 6,
     kValInt641FieldNumber_7 = 7,
     kValInt641FieldNumber = 8,
     kValUint641FieldNumber_9 = 9,
     kValUint641FieldNumber = 10,
-    kValBool1FieldNumber = 11,
-    kValBool1FieldNumber_12 = 12,
-    kValFloat1FieldNumber = 15,
-    kValDouble1FieldNumber = 13,
-    kValDouble1FieldNumber_14 = 14,
-    kValFloat1FieldNumber_16 = 16,
+    kValBool1FieldNumber_11 = 11,
+    kValBool1FieldNumber = 12,
+    kValFloat1FieldNumber_15 = 15,
+    kValDouble1FieldNumber_13 = 13,
+    kValDouble1FieldNumber = 14,
+    kValFloat1FieldNumber = 16,
   };
   // optional string val_str1 = 1;
   bool has_val_str1() const;
@@ -4383,8 +4383,8 @@ class TestRepeatedFieldsWithSameJsonName final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kRepStr1FieldNumber = 1,
-    kRepStr1FieldNumber_2 = 2,
+    kRepStr1FieldNumber_1 = 1,
+    kRepStr1FieldNumber = 2,
   };
   // repeated string rep_str1 = 1;
   int rep_str1_size() const;
@@ -4579,8 +4579,8 @@ class TestMessageFieldsWithSameJsonName final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kPrim1FieldNumber = 1,
-    kPrim1FieldNumber_2 = 2,
+    kPrim1FieldNumber_1 = 1,
+    kPrim1FieldNumber = 2,
   };
   // optional .proto_util_converter.testing.Primitive prim1 = 1;
   bool has_prim1() const;

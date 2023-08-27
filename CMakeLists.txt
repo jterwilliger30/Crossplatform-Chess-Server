@@ -1,7 +1,10 @@
 cmake_minimum_required(VERSION 3.0.0)
 project(Chess-Server)
 set(CMAKE_CXX_STANDARD 20)
+
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MT")
 set(CMAKE_CXX_FLAGS "-Wall -g")
+set(Protobuf_USE_STATIC_LIBS ON)
 
 include_directories(${CMAKE_SOURCE_DIR})
 include_directories(${CMAKE_SOURCE_DIR}/externals)
@@ -10,11 +13,36 @@ include_directories(${CMAKE_SOURCE_DIR}/game_engine)
 include_directories(${CMAKE_SOURCE_DIR}/pieces)
 include_directories(${CMAKE_SOURCE_DIR}/protobuf)
 
-LINK_DIRECTORIES(/usr/local/lib)
+IF (WIN32)
+  message("------ Windows detected ------\n")
 
-find_package(Protobuf REQUIRED)
-include_directories(${Protobuf_INCLUDE_DIRS})
-include_directories(${CMAKE_CURRENT_BINARY_DIR})
+  #add_library(protobuf STATIC IMPORTED) # or STATIC instead of SHARED
+  #set_target_properties(protobuf PROPERTIES
+  #  IMPORTED_LOCATION "${CMAKE_SOURCE_DIR}/lib/libbar.so"
+  #  INTERFACE_INCLUDE_DIRECTORIES "C:\Program Files (x86)\protobuf\include"
+  #)
+
+  #LINK_DIRECTORIES("C:/Program Files (x86)/protobuf/lib")
+  find_package(Protobuf CONFIG REQUIRED
+    HINTS
+      ${CMAKE_SOURCE_DIR}/externals/protobuf-21.12/build/Release
+      #"C:/Program Files/protobuf"
+      #"C:/Program Files (x86)/protobuf"
+      )
+ELSE()
+  LINK_DIRECTORIES(/usr/local/lib) #make cross-platform
+  find_package(Protobuf REQUIRED)
+ENDIF()
+
+IF (Protobuf_FOUND)
+  message("\nPROTOBUF FOUND\n")
+ELSE()
+  message("\nProtobuf not found....\n")
+ENDIF()
+
+
+#include_directories(${Protobuf_INCLUDE_DIRS})
+#include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 set(SOURCE
     ${SOURCE}
@@ -66,5 +94,6 @@ set(HEADERS
 
 add_executable(chess.bin ${SOURCE} ${HEADERS})
 
-target_link_libraries(chess.bin ${Protobuf_LIBRARIES})
-target_link_libraries(chess.bin protoc protobuf)
+#target_link_libraries(chess.bin ${Protobuf_PROTOC_LIBRARIES} ${Protobuf_LIBRARIES})
+#target_link_libraries(chess.bin protobuf protoc)
+target_link_libraries(chess.bin PUBLIC protobuf::libprotoc protobuf::libprotobuf)
