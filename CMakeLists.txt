@@ -25,9 +25,9 @@ IF (WIN32)
   #LINK_DIRECTORIES("C:/Program Files (x86)/protobuf/lib")
   find_package(Protobuf CONFIG REQUIRED
     HINTS
-      ${CMAKE_SOURCE_DIR}/externals/protobuf-21.12/build/Release
-      #"C:/Program Files/protobuf"
-      #"C:/Program Files (x86)/protobuf"
+      #${CMAKE_SOURCE_DIR}/externals/protobuf-21.12/build/Release
+      "C:/Program Files/protobuf"
+      "C:/Program Files (x86)/protobuf"
       )
 ELSE()
   LINK_DIRECTORIES(/usr/local/lib) #make cross-platform

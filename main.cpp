@@ -121,8 +121,13 @@ int main(int argc, char *argv[])
         auto move = p1.interface->getUserMove(static_cast<bool>(p1.player->isWhite));
         engine.GAMEBOARD->take_turn(p1.player, move);
 
-        
+        // PLEASE NOTE THAT ONLY 1 CLIENT IS POLLED FOR DEBUGGING
         p1.interface->sendResponse(engine.GAMEBOARD->print_board());
+        move = p1.interface->getUserMove(static_cast<bool>(p2.player->isWhite));
+        engine.GAMEBOARD->take_turn(p2.player, move);
+
+
+
 
         // Synchronize game state with client(s)
         // (BOTH) Handle WIN/STALEMATE/CHECK condition
