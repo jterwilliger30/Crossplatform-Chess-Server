@@ -2,6 +2,7 @@
 - This software now compiles on Windows... just need to install CMAKE and MSVC v143 SDK & Co.
 
 # TODO
+- I really didn't think this through... randomly assigning colors means black sometimes goes first.
 - Need to distinguish b/w singleplayer meaning vs. AI or singleplayer meaning one player plays both sides
 - What to do about virtual destructor... probably not needed anymore with shared_ptrs
 
