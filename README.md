@@ -6,7 +6,7 @@
 - What to do about virtual destructor... probably not needed anymore with shared_ptrs
 
 
-# Building Chess-Server
+# Building Chess-Server (requires Protobuf)
 - FOR WINDOWS: 'cmake .', then 'cmake --build . --config Release'
 - FOR _nix: 'cmake .', then make
 
