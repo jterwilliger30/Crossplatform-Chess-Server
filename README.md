@@ -12,7 +12,7 @@
 - FOR _nix: 'cmake .', then make
 
 # Building Protobuf
-- Build assumes you have Protobuf 21.12 installed somewhere CMake can find it... while protobuf is in the externals folder, it is not currently dynamically compiled or linked. 
+- Build assumes you have Protobuf 21.12 installed somewhere CMake can find it... while protobuf is in the externals folder, it is not currently dynamically compiled or linked. Doing one of the below should be enough to make CMake happy.
 
 - FOR WINDOWS: 'cmake .', then 'cmake --build . --config Release --target install'
 - FOR *nix: Building protobuf should just be as simple as calling 'cmake .' or 'cmake3', then 'make', then 'sudo make install'.
