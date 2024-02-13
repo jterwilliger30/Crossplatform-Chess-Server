@@ -3,7 +3,7 @@ project(Chess-Server)
 set(CMAKE_CXX_STANDARD 20)
 
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MT")
-set(CMAKE_CXX_FLAGS "-Wall -g")
+set(CMAKE_CXX_FLAGS "-Wall -g -static-libstdc++")
 set(Protobuf_USE_STATIC_LIBS ON)
 
 include_directories(${CMAKE_SOURCE_DIR})
@@ -94,6 +94,4 @@ set(HEADERS
 
 add_executable(chess.bin ${SOURCE} ${HEADERS})
 
-#target_link_libraries(chess.bin ${Protobuf_PROTOC_LIBRARIES} ${Protobuf_LIBRARIES})
-#target_link_libraries(chess.bin protobuf protoc)
 target_link_libraries(chess.bin PUBLIC protobuf::libprotoc protobuf::libprotobuf)

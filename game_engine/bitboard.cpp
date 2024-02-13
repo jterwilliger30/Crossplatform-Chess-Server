@@ -13,8 +13,6 @@ Bitboard::Bitboard(uint64_t val)
     bitboard = val;
 }
 
-
-
 void Bitboard::print_board()
 {
     std::bitset<64> bitset = this->bitboard;
